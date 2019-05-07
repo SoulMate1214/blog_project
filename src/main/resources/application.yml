@@ -1,0 +1,59 @@
+# 指定端口
+# 我们设定了服务并行通过,所以这边可以设定两个端口，同时启动(8881、8882)
+server:
+  port: 1111
+  tomcat:
+    uri-encoding: UTF-8
+
+# log配置.
+logging:
+  path: log
+  level:
+    com:
+      favorites: DEBUG
+    org:
+      springframework:
+        web: INFO
+      hibernate: ERROR
+
+# spring-cloud配置
+spring:
+  application:
+    # 服务名称
+    name: blog_project
+
+  # 字符集
+  banner:
+    charset: UTF-8
+  messages:
+    encoding: UTF-8
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
+
+  # 数据库配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/springboot_project?characterEncoding=UTF-8
+    username: root
+    password: 981214
+    driverClassName: com.mysql.jdbc.Driver
+
+  # Jpa配置.
+  jpa:
+    # 指定数据库
+    database: mysql
+    # 是否显示每个SQL查询的日志
+    show-sql: true
+    hibernate:
+      # Hibernate DDL自动（创建、创建、删除、更新、验证、无）
+      ddl-auto: update
+      # 命名策略org.hibernate.cfg.ImprovedNamingStrategy和org.hibernate.cfg.DefaultNamingStrategy
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        # 在将它们添加到实体管理器之前将其剥离
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        hbm2ddl:
+          auto: update
