@@ -26,4 +26,16 @@ public class SysFile extends BaseEntity {
      */
     @Column(name = "url", nullable = false)
     private String url;
+
+    /**
+     * 文件类型
+     */
+    @Column(name = "type", nullable = false)
+    private String type;
+
+    /**
+     * 关联文章id
+     */
+    @Column(name = "article_id")
+    private Integer articleId;
 }

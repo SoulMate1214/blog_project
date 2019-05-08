@@ -38,6 +38,7 @@ public class SysArticle extends BaseEntity {
      */
     @Column(name = "classify_id", nullable = false)
     private Integer classifyId;
+
     /**
      * 标签
      */

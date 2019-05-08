@@ -37,7 +37,7 @@ public class BaseEntity implements Serializable {
     /**
      * 名称
      */
-    @Column(name = "name", nullable = false)
+    @Column(name = "name")
     private String name;
 
     /**
@@ -64,18 +64,19 @@ public class BaseEntity implements Serializable {
     @Column(name = "is_enable")
     private Boolean isEnable = true;
 
+
     /**
      * 创建时间
      */
     @CreatedDate
-    @Column(name = "create_time", columnDefinition = "datetime not null default now() comment '创建时间'")
+    @Column(name = "create_time")
     private LocalDateTime createTime;
 
     /**
      * 修改时间
      */
     @LastModifiedDate
-    @Column(name = "modify_time", columnDefinition = "datetime not null default now() comment '修改时间'")
+    @Column(name = "modify_time")
     private LocalDateTime modifyTime;
 
     /**
