@@ -57,3 +57,10 @@ spring:
         dialect: org.hibernate.dialect.MySQL5Dialect
         hbm2ddl:
           auto: update
+
+  # 消息队列
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
