@@ -22,6 +22,12 @@ import javax.persistence.Table;
 @Where(clause = "is_enable = 1")
 public class SysArticle extends BaseEntity {
     /**
+     * 文章内容
+     */
+    @Column(name = "message", nullable = false)
+    private String message;
+
+    /**
      * 文章浏览量
      */
     @Column(name = "browse_count", nullable = false)
