@@ -31,7 +31,7 @@ public class SysLog extends BaseEntity{
      * 操作方式GET/POST/DELETE/PUT
      */
     @Column(name = "operation")
-    private Integer operation;
+    private String operation;
 
     /**
      * 访问的实际url
@@ -49,5 +49,5 @@ public class SysLog extends BaseEntity{
      * 访问的相对的url
      */
     @Column(name = "url")
-    private Integer url;
+    private String url;
 }

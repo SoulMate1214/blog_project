@@ -10,7 +10,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 
 /**
@@ -70,14 +70,14 @@ public class BaseEntity implements Serializable {
      */
     @CreatedDate
     @Column(name = "create_time")
-    private LocalDateTime createTime;
+    private Date createTime;
 
     /**
      * 修改时间
      */
     @LastModifiedDate
     @Column(name = "modify_time")
-    private LocalDateTime modifyTime;
+    private Date modifyTime;
 
     /**
      * 创建用户

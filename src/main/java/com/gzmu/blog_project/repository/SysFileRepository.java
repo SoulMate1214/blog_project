@@ -10,6 +10,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
  * @date: created in 下午6:03 19-4-22
  * @modified:
  */
-@RepositoryRestResource(path="file")
+@RepositoryRestResource
 public interface SysFileRepository extends BaseRepository<SysFile, Integer> {
 }
