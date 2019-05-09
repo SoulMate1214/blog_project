@@ -1,8 +1,7 @@
 package com.gzmu.blog_project.tools;
 
 import com.gzmu.blog_project.entity.SysLog;
-import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +41,7 @@ public class RabbitProducer {
 
     /**
      * aop切面监控所有执行的方法，获取基本信息保存到log
+     * 这里尝试了@Around，@Around和队列会有冲突导致队列通道中断，pass掉
      *
      * getRequestURI()：请求的URI（相对路劲）
      * getMethod()：请求方式
@@ -52,28 +52,21 @@ public class RabbitProducer {
      * getHeader("User-Agent")：浏览器信息
      * getRemoteHost()：客户端电脑名，若失败，则返回来源ip
      *
-     * @param joinPoint
-     * @throws Throwable
      */
-    @Around("execution(* com.gzmu.blog_project.repository.*..*(..))")
-    public Object processTx(ProceedingJoinPoint joinPoint) throws Throwable {
-        if (joinPoint.getArgs().length > 0) {
-            Date date = new Date();
-            SysLog sysLog = new SysLog();
-            sysLog.setStatus(1);
-            sysLog.setCreateTime(date);
-            sysLog.setCreateUser("admin");
-            sysLog.setBrowser(httpServletRequest.getHeader("User-Agent"));
-            sysLog.setIp(httpServletRequest.getRemoteAddr());
-            sysLog.setFromUrl(httpServletRequest.getRequestURL().toString());
-            sysLog.setUrl(httpServletRequest.getRequestURI());
-            sysLog.setOperation(httpServletRequest.getMethod());
-            sysLog.setName("来自"+httpServletRequest.getRequestURL().toString()+"的日志信息");
-            rabbitmqTemplate.convertAndSend(RabbitConfig.EXCHANGE, RabbitConfig.ROUTING_KEY, sysLog);
-            return joinPoint.proceed(joinPoint.getArgs());
-        } else {
-            return joinPoint.proceed();
-        }
+    @After("execution(* com.gzmu.blog_project.repository.*..*(..))")
+    public void logMessageGenerate(){
+        Date date = new Date();
+        SysLog sysLog = new SysLog();
+        sysLog.setStatus(1);
+        sysLog.setCreateTime(date);
+        sysLog.setCreateUser("admin");
+        sysLog.setBrowser(httpServletRequest.getHeader("User-Agent"));
+        sysLog.setIp(httpServletRequest.getRemoteAddr());
+        sysLog.setFromUrl(httpServletRequest.getRequestURL().toString());
+        sysLog.setUrl(httpServletRequest.getRequestURI());
+        sysLog.setOperation(httpServletRequest.getMethod());
+        sysLog.setName("来自"+httpServletRequest.getRequestURL().toString()+"的日志信息");
+        rabbitmqTemplate.convertAndSend(RabbitConfig.EXCHANGE, RabbitConfig.ROUTING_KEY, sysLog);
     }
 
     /**
@@ -84,7 +77,7 @@ public class RabbitProducer {
         SysLog sysLog = new SysLog();
         sysLog.setFromUrl(httpServletRequest.getServletPath());
         rabbitmqTemplate.convertAndSend(RabbitConfig.EXCHANGE, RabbitConfig.ROUTING_KEY, sysLog);
-        return "队列成功";
+        return "立即队列成功";
     }
 
     /**
@@ -102,6 +95,6 @@ public class RabbitProducer {
                     message.getMessageProperties().setDelay(Integer.parseInt(delayTime));
                     return message;
                 });
-        return "队列成功";
+        return "延时队列成功";
     }
 }
