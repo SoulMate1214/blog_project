@@ -41,7 +41,6 @@ public class RabbitConsumer {
         try {
             sysLogRepository.save(sysLog);
         } catch (Exception e) {
-            channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
         }
     }
 

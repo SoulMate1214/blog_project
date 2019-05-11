@@ -24,9 +24,8 @@ import java.util.Date;
 @RestController
 @Aspect
 public class RabbitProducer {
-    private final
+    final
     HttpServletRequest httpServletRequest;
-
     /**
      * AmqpTemplate接口定义了发送和接收消息的基本操作。
      */
@@ -59,7 +58,9 @@ public class RabbitProducer {
         SysLog sysLog = new SysLog();
         sysLog.setStatus(1);
         sysLog.setCreateTime(date);
+        sysLog.setModifyTime(date);
         sysLog.setCreateUser("admin");
+        sysLog.setModifyUser("admin");
         sysLog.setBrowser(httpServletRequest.getHeader("User-Agent"));
         sysLog.setIp(httpServletRequest.getRemoteAddr());
         sysLog.setFromUrl(httpServletRequest.getRequestURL().toString());
@@ -68,6 +69,8 @@ public class RabbitProducer {
         sysLog.setName("来自"+httpServletRequest.getRequestURL().toString()+"的日志信息");
         rabbitmqTemplate.convertAndSend(RabbitConfig.EXCHANGE, RabbitConfig.ROUTING_KEY, sysLog);
     }
+
+
 
     /**
      * 测试立即消费者发送方
