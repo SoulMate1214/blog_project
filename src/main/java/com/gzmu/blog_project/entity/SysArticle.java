@@ -34,14 +34,14 @@ public class SysArticle extends BaseEntity {
     private Integer browseCount;
 
     /**
+     * 文章点赞数
+     */
+    @Column(name = "like_count", nullable = false)
+    private Integer likeCount;
+
+    /**
      * 关联分类id
      */
     @Column(name = "classify_id", nullable = false)
     private Integer classifyId;
-
-    /**
-     * 标签
-     */
-    @Column(name = "label", nullable = false)
-    private String label;
 }

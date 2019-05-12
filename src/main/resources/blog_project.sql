@@ -1,4 +1,4 @@
- create table sys_classify
+create table sys_classify
 (
   id          int auto_increment comment '编号'
     primary key,
@@ -21,8 +21,8 @@ create table sys_article
   name         varchar(255)   not null comment '文章名',
   message      varchar(15000) not null comment '文章内容',
   browse_count int default 0  not null comment '浏览量，默认0',
+  like_count   int default 0  not null comment '点赞数',
   classify_id  int            not null comment '文章分类编号',
-  label        varchar(255)   not null comment '文章标签',
   sort         int            null comment '排序',
   status       int            null comment '状态',
   remark       varchar(255)   null comment '备注',
@@ -80,11 +80,48 @@ create table sys_file
 )
   comment '文件';
 
+create table sys_label
+(
+  id          int auto_increment comment '编号'
+    primary key,
+  name        varchar(255) not null comment '标签名',
+  sort        int          null comment '排序',
+  status      int          null comment '状态',
+  remark      varchar(255) null comment '备注',
+  is_enable   tinyint      null comment '是否启用',
+  create_time date         null comment '创建时间',
+  modify_time date         null comment '修改时间',
+  create_user varchar(255) null comment '创建者',
+  modify_user varchar(255) null comment '修改者'
+)
+  comment '标签';
+
+create table sys_article_label
+(
+  id          int auto_increment comment '编号'
+    primary key,
+  article_id  int          not null comment '文章编号',
+  label_id    int          not null comment '标签编号',
+  sort        int          null comment '排序',
+  status      int          null comment '状态',
+  remark      varchar(255) null comment '备注',
+  is_enable   tinyint      null comment '是否启用',
+  create_time date         null comment '创建时间',
+  modify_time date         null comment '修改时间',
+  create_user varchar(255) null comment '创建者',
+  modify_user varchar(255) null comment '修改者',
+  constraint sys_article_fk
+    foreign key (article_id) references sys_article (id),
+  constraint sys_label_fk
+    foreign key (label_id) references sys_label (id)
+)
+  comment '文章标签关联';
+
 create table sys_log
 (
   id          int auto_increment comment '编号'
     primary key,
-  name        varchar(11)   null comment '名称',
+  name        varchar(255)  null comment '名称',
   browser     varchar(255)  null comment '浏览器',
   operation   varchar(20)   null comment '操作方式：GET/POST',
   from_url    varchar(1000) null comment '访问的实际url地址',
@@ -247,5 +284,3 @@ create table sys_user_role
     foreign key (user_id) references sys_user (id)
 )
   comment '用户角色关联' charset = utf8;
-
-
