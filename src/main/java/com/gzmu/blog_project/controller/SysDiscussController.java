@@ -15,8 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/discuss")
 public class SysDiscussController {
-    final
-    SysDiscussService sysDiscussService;
+    private final SysDiscussService sysDiscussService;
 
     @Autowired
     public SysDiscussController(SysDiscussService sysDiscussService) {

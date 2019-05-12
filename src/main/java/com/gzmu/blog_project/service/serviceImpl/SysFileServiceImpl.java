@@ -14,8 +14,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class SysFileServiceImpl implements SysFileService {
-    final
-    SysFileRepository sysFileRepository;
+    private final SysFileRepository sysFileRepository;
 
     @Autowired
     public SysFileServiceImpl(SysFileRepository sysFileRepository) {

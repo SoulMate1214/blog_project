@@ -14,8 +14,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class SysDiscussServiceImpl implements SysDiscussService {
-    final
-    SysDiscussRepository sysDiscussRepository;
+    private final SysDiscussRepository sysDiscussRepository;
 
     @Autowired
     public SysDiscussServiceImpl(SysDiscussRepository sysDiscussRepository) {

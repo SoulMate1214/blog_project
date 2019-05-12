@@ -14,8 +14,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class SysPageServiceImpl implements SysPageService {
-    final
-    SysPageRepository sysPageRepository;
+    private final SysPageRepository sysPageRepository;
 
     @Autowired
     public SysPageServiceImpl(SysPageRepository sysPageRepository) {

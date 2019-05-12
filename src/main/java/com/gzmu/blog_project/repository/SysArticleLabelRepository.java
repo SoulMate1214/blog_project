@@ -3,6 +3,8 @@ package com.gzmu.blog_project.repository;
 import com.gzmu.blog_project.entity.SysArticleLabel;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
+import java.util.List;
+
 /**
  * @className: SysArticleLabelRepository
  * @author: 冫soul丶
@@ -12,4 +14,10 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
  */
 @RepositoryRestResource
 public interface SysArticleLabelRepository extends BaseRepository<SysArticleLabel, Integer>{
+    /**
+     * 根据文章编号查找
+     * @param articleId
+     * @return List<SysArticleLabel>
+     */
+    List<SysArticleLabel> findByArticleId(Integer articleId);
 }

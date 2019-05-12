@@ -15,8 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/label")
 public class SysLabelController {
-    final
-    SysLabelService sysLabelService;
+    private final SysLabelService sysLabelService;
 
     @Autowired
     public SysLabelController(SysLabelService sysLabelService) {

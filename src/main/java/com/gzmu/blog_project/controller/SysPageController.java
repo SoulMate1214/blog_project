@@ -15,8 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/page")
 public class SysPageController {
-    final
-    SysPageService sysPageService;
+    private final SysPageService sysPageService;
 
     @Autowired
     public SysPageController(SysPageService sysPageService) {

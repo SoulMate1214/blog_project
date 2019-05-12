@@ -17,8 +17,7 @@ import java.util.Optional;
  */
 @Service
 public class SysClassifyServiceImpl implements SysClassifyService {
-    final
-    SysClassifyRepository sysClassifyRepository;
+    private final SysClassifyRepository sysClassifyRepository;
 
     @Autowired
     public SysClassifyServiceImpl(SysClassifyRepository sysClassifyRepository) {
@@ -26,7 +25,7 @@ public class SysClassifyServiceImpl implements SysClassifyService {
     }
 
     @Override
-    public Optional<SysClassify> findClassifyNameById(Integer classifyId) {
-        return sysClassifyRepository.findById(classifyId);
+    public Optional<SysClassify> findById(Integer id) {
+        return sysClassifyRepository.findById(id);
     }
 }

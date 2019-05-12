@@ -14,8 +14,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class SysUserRoleServiceImpl implements SysUserRoleService {
-    final
-    SysUserRoleRepository sysUserRoleRepository;
+    private final SysUserRoleRepository sysUserRoleRepository;
 
     @Autowired
     public SysUserRoleServiceImpl(SysUserRoleRepository sysUserRoleRepository) {

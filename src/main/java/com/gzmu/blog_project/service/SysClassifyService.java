@@ -12,5 +12,10 @@ import java.util.Optional;
  * @modified:
  */
 public interface SysClassifyService extends BaseService{
-    Optional<SysClassify> findClassifyNameById(Integer classifyId);
+    /**
+     * 根据id查找
+     * @param id
+     * @return Optional
+     */
+    Optional<SysClassify> findById(Integer id);
 }

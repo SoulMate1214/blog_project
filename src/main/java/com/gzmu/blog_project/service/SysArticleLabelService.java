@@ -1,5 +1,9 @@
 package com.gzmu.blog_project.service;
 
+import com.gzmu.blog_project.entity.SysArticleLabel;
+
+import java.util.List;
+
 /**
  * @className: SysArticleLabelService
  * @author: 冫soul丶
@@ -8,4 +12,10 @@ package com.gzmu.blog_project.service;
  * @modified:
  */
 public interface SysArticleLabelService extends BaseService{
+    /**
+     * 根据文章编号查找
+     * @param articleId
+     * @return List<SysArticleLabel>
+     */
+    List<SysArticleLabel> findByArticleId(Integer articleId);
 }

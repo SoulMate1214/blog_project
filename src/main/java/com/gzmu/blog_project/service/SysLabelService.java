@@ -1,5 +1,9 @@
 package com.gzmu.blog_project.service;
 
+import com.gzmu.blog_project.entity.SysLabel;
+
+import java.util.Optional;
+
 /**
  * @className: SysLabelService
  * @author: 冫soul丶
@@ -8,4 +12,10 @@ package com.gzmu.blog_project.service;
  * @modified:
  */
 public interface SysLabelService extends BaseService{
+    /**
+     * 根据id查找
+     * @param id
+     * @return Optional
+     */
+    Optional<SysLabel> findById(Integer id);
 }

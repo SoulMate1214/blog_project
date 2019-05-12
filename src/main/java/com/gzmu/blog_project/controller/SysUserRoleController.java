@@ -15,8 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/userRole")
 public class SysUserRoleController {
-    final
-    SysUserRoleService sysUserRoleService;
+    private final SysUserRoleService sysUserRoleService;
 
     @Autowired
     public SysUserRoleController(SysUserRoleService sysUserRoleService) {

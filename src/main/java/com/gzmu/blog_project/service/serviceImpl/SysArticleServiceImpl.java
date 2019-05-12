@@ -1,9 +1,13 @@
 package com.gzmu.blog_project.service.serviceImpl;
 
+import com.gzmu.blog_project.entity.SysArticle;
 import com.gzmu.blog_project.repository.SysArticleRepository;
 import com.gzmu.blog_project.service.SysArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
 
 /**
  * @className: SysArticleServiceImpl
@@ -14,11 +18,20 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class SysArticleServiceImpl implements SysArticleService {
-    final
-    SysArticleRepository sysArticleRepository;
+    private final SysArticleRepository sysArticleRepository;
 
     @Autowired
     public SysArticleServiceImpl(SysArticleRepository sysArticleRepository) {
         this.sysArticleRepository = sysArticleRepository;
+    }
+
+    @Override
+    public Optional<SysArticle> findById(Integer id) {
+        return sysArticleRepository.findById(id);
+    }
+
+    @Override
+    public List<SysArticle> findAll() {
+        return sysArticleRepository.findAll();
     }
 }

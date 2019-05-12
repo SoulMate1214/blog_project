@@ -14,8 +14,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class SysSettingServiceImpl implements SysSettingService {
-    final
-    SysSettingRepository sysSettingRepository;
+    private final SysSettingRepository sysSettingRepository;
 
     @Autowired
     public SysSettingServiceImpl(SysSettingRepository sysSettingRepository) {

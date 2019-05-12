@@ -1,5 +1,10 @@
 package com.gzmu.blog_project.service;
 
+import com.gzmu.blog_project.entity.SysArticle;
+
+import java.util.List;
+import java.util.Optional;
+
 /**
  * @className: SysArticleService
  * @author: 冫soul丶
@@ -8,4 +13,16 @@ package com.gzmu.blog_project.service;
  * @modified:
  */
 public interface SysArticleService extends BaseService{
+    /**
+     * 根据id查找
+     * @param id
+     * @return Optional
+     */
+    Optional<SysArticle> findById(Integer id);
+
+    /**
+     * 全查
+     * @return List<SysArticle>
+     */
+    List<SysArticle> findAll();
 }

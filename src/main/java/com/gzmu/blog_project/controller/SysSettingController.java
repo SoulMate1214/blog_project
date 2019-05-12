@@ -15,8 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/setting")
 public class SysSettingController {
-    final
-    SysSettingService sysSettingService;
+    private final SysSettingService sysSettingService;
 
     @Autowired
     public SysSettingController(SysSettingService sysSettingService) {

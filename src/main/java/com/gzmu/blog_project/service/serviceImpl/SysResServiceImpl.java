@@ -14,8 +14,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class SysResServiceImpl implements SysResService {
-    final
-    SysResRepository sysResRepository;
+    private final SysResRepository sysResRepository;
 
     @Autowired
     public SysResServiceImpl(SysResRepository sysResRepository) {

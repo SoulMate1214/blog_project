@@ -15,8 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/file")
 public class SysFileController {
-    final
-    SysFileService sysFileService;
+    private final SysFileService sysFileService;
 
     @Autowired
     public SysFileController(SysFileService sysFileService) {

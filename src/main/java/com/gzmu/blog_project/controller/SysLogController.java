@@ -15,8 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/log")
 public class SysLogController {
-    final
-    SysLogService sysLogService;
+    private final SysLogService sysLogService;
 
     @Autowired
     public SysLogController(SysLogService sysLogService) {

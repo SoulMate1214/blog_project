@@ -15,8 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/res")
 public class SysResController {
-    final
-    SysResService sysResService;
+    private final SysResService sysResService;
 
     @Autowired
     public SysResController(SysResService sysResService) {

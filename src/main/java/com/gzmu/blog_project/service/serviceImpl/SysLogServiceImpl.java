@@ -14,8 +14,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class SysLogServiceImpl implements SysLogService {
-    final
-    SysLogRepository sysLogRepository;
+    private final SysLogRepository sysLogRepository;
 
     @Autowired
     public SysLogServiceImpl(SysLogRepository sysLogRepository) {
