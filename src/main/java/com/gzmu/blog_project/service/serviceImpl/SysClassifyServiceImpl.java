@@ -1,9 +1,12 @@
 package com.gzmu.blog_project.service.serviceImpl;
 
+import com.gzmu.blog_project.entity.SysClassify;
 import com.gzmu.blog_project.repository.SysClassifyRepository;
 import com.gzmu.blog_project.service.SysClassifyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 /**
  * @className: SysClassifyServiceImpl
@@ -20,5 +23,10 @@ public class SysClassifyServiceImpl implements SysClassifyService {
     @Autowired
     public SysClassifyServiceImpl(SysClassifyRepository sysClassifyRepository) {
         this.sysClassifyRepository = sysClassifyRepository;
+    }
+
+    @Override
+    public Optional<SysClassify> findClassifyNameById(Integer classifyId) {
+        return sysClassifyRepository.findById(classifyId);
     }
 }

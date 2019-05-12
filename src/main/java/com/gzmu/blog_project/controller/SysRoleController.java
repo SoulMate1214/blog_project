@@ -2,8 +2,8 @@ package com.gzmu.blog_project.controller;
 
 import com.gzmu.blog_project.service.SysRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @className: SysRoleController
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @date: created in 下午3:16 19-5-8
  * @modified:
  */
-@RepositoryRestController
+@RestController
 @RequestMapping("/role")
 public class SysRoleController {
     final

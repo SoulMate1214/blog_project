@@ -100,6 +100,7 @@ create table sys_article_label
 (
   id          int auto_increment comment '编号'
     primary key,
+  name        varchar(255) null comment '名称',
   article_id  int          not null comment '文章编号',
   label_id    int          not null comment '标签编号',
   sort        int          null comment '排序',
@@ -267,7 +268,7 @@ create table sys_user_role
 (
   id          int auto_increment comment '编号'
     primary key,
-  name        varchar(254) null comment '名称',
+  name        varchar(255) null comment '名称',
   user_id     int          not null comment '用户编号',
   role_id     int          not null comment '角色编号',
   sort        int          null comment '排序',

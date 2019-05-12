@@ -1,5 +1,9 @@
 package com.gzmu.blog_project.service;
 
+import com.gzmu.blog_project.entity.SysClassify;
+
+import java.util.Optional;
+
 /**
  * @className: SysClassifyService
  * @author: 冫soul丶
@@ -8,4 +12,5 @@ package com.gzmu.blog_project.service;
  * @modified:
  */
 public interface SysClassifyService extends BaseService{
+    Optional<SysClassify> findClassifyNameById(Integer classifyId);
 }
