@@ -1,16 +1,13 @@
 package com.gzmu.blog_project.controller;
 
 import com.gzmu.blog_project.entity.SysArticle;
-import com.gzmu.blog_project.entity.SysClassify;
 import com.gzmu.blog_project.service.SysArticleService;
 import com.gzmu.blog_project.service.SysClassifyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @className: SysArticleController
@@ -54,7 +51,20 @@ public class SysArticleController {
     public SysArticle findSysArticleById(String articleId) {
         SysArticle sysArticle  = sysArticleService.findById(Integer.parseInt(articleId)).get();
         String classifyName = sysClassifyService.findById(sysArticle.getClassifyId()).get().getName();
+        sysArticle.setBrowseCount(sysArticle.getBrowseCount()+1);
+        sysArticleService.save(sysArticle);
         sysArticle.setRemark(classifyName);
         return sysArticle;
+    }
+
+    /**
+     * 点赞请求
+     * @param articleId
+     */
+    @RequestMapping("/saveLikeCount")
+    public void  saveLikeCount(String articleId){
+        SysArticle sysArticle  = sysArticleService.findById(Integer.parseInt(articleId)).get();
+        sysArticle.setLikeCount(sysArticle.getLikeCount()+1);
+        sysArticleService.save(sysArticle);
     }
 }

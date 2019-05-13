@@ -25,4 +25,9 @@ public interface SysArticleService extends BaseService{
      * @return List<SysArticle>
      */
     List<SysArticle> findAll();
+
+    /**
+     * 保存
+     */
+    void save(SysArticle sysArticle);
 }

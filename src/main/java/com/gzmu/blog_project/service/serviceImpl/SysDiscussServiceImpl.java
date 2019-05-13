@@ -1,5 +1,6 @@
 package com.gzmu.blog_project.service.serviceImpl;
 
+import com.gzmu.blog_project.entity.SysDiscuss;
 import com.gzmu.blog_project.repository.SysDiscussRepository;
 import com.gzmu.blog_project.service.SysDiscussService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,5 +20,10 @@ public class SysDiscussServiceImpl implements SysDiscussService {
     @Autowired
     public SysDiscussServiceImpl(SysDiscussRepository sysDiscussRepository) {
         this.sysDiscussRepository = sysDiscussRepository;
+    }
+
+    @Override
+    public void save(SysDiscuss sysDiscuss) {
+        sysDiscussRepository.save(sysDiscuss);
     }
 }

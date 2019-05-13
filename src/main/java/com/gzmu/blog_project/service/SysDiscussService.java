@@ -1,5 +1,8 @@
 package com.gzmu.blog_project.service;
 
+
+import com.gzmu.blog_project.entity.SysDiscuss;
+
 /**
  * @className: SysDiscussService
  * @author: 冫soul丶
@@ -8,4 +11,8 @@ package com.gzmu.blog_project.service;
  * @modified:
  */
 public interface SysDiscussService extends BaseService{
+    /**
+     * 保存
+     */
+    void save(SysDiscuss sysDiscuss);
 }

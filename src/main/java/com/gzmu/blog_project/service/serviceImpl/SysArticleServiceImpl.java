@@ -34,4 +34,9 @@ public class SysArticleServiceImpl implements SysArticleService {
     public List<SysArticle> findAll() {
         return sysArticleRepository.findAll();
     }
+
+    @Override
+    public void save(SysArticle sysArticle) {
+        sysArticleRepository.save(sysArticle);
+    }
 }
