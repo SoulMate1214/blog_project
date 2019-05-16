@@ -1,9 +1,12 @@
 package com.gzmu.blog_project.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.gzmu.blog_project.entity.SysArticle;
 import com.gzmu.blog_project.service.SysArticleService;
 import com.gzmu.blog_project.service.SysClassifyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -59,11 +62,11 @@ public class SysArticleController {
 
     /**
      * 点赞请求
-     * @param articleId
+     * @param jsonParam
      */
-    @RequestMapping("/saveLikeCount")
-    public void  saveLikeCount(String articleId){
-        SysArticle sysArticle  = sysArticleService.findById(Integer.parseInt(articleId)).get();
+    @PostMapping("/saveLikeCount")
+    public void  saveLikeCount(@RequestBody JSONObject jsonParam){
+        SysArticle sysArticle  = sysArticleService.findById(jsonParam.getInteger("articleId")).get();
         sysArticle.setLikeCount(sysArticle.getLikeCount()+1);
         sysArticleService.save(sysArticle);
     }

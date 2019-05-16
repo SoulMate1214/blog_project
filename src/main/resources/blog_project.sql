@@ -41,8 +41,8 @@ create table sys_discuss
   id          int auto_increment comment '编号'
     primary key,
   name        varchar(11)    null comment '名称',
-  parent_id   int            not null comment '父级编号',
-  article_id  int            not null comment '文章编号',
+  parent_id   int            null comment '父级编号',
+  article_id  int            null comment '文章编号',
   message     varchar(10000) not null comment '评论内容',
   sort        int            null comment '排序',
   status      int            null comment '状态',
@@ -243,6 +243,23 @@ create table sys_setting
   modify_user     varchar(255) null comment '修改者'
 )
   comment '系统基本设置';
+
+create table sys_timeline
+(
+  id          int auto_increment comment '编号'
+    primary key,
+  name        varchar(255)   not null comment '名称',
+  message     varchar(15000) not null comment '历程内容',
+  sort        int            null comment '排序',
+  status      int            null comment '状态',
+  remark      varchar(255)   null comment '备注',
+  is_enable   tinyint        null comment '是否启用',
+  create_time date           null comment '创建日期',
+  modify_time date           null comment '修改日期',
+  create_user varchar(255)   null comment '创建者',
+  modify_user varchar(255)   null comment '修改者'
+)
+  comment '历程';
 
 create table sys_user
 (

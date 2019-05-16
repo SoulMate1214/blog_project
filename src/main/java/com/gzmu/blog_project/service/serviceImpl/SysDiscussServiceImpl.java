@@ -6,6 +6,8 @@ import com.gzmu.blog_project.service.SysDiscussService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @className: SysDiscussServiceImpl
  * @author: 冫soul丶
@@ -25,5 +27,15 @@ public class SysDiscussServiceImpl implements SysDiscussService {
     @Override
     public void save(SysDiscuss sysDiscuss) {
         sysDiscussRepository.save(sysDiscuss);
+    }
+
+    @Override
+    public List<SysDiscuss> findByArticleId(Integer articleId) {
+        return sysDiscussRepository.findByArticleId(articleId);
+    }
+
+    @Override
+    public List<SysDiscuss> findByArticleIdAndParentId(Integer articleId, Integer parentId) {
+        return sysDiscussRepository.findByArticleIdAndParentId(articleId, parentId);
     }
 }
