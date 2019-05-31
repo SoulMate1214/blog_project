@@ -7,6 +7,7 @@ import org.hibernate.annotations.Where;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  * @className: SysRole(权限表)
@@ -38,4 +39,10 @@ public class SysRole extends BaseEntity {
      */
     @Column(name = "icon_cls")
     private String iconCls;
+
+    /**
+     * 父级实体
+     */
+    @Transient
+    private SysRole sysRole;
 }

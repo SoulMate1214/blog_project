@@ -45,4 +45,10 @@ public class SysDiscuss extends BaseEntity {
      */
     @Transient
     private SysArticle sysArticle;
+
+    /**
+     * 父级实体
+     */
+    @Transient
+    private SysDiscuss sysDiscuss;
 }
