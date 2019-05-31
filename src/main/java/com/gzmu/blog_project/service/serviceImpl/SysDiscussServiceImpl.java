@@ -1,9 +1,7 @@
 package com.gzmu.blog_project.service.serviceImpl;
 
-import com.gzmu.blog_project.entity.SysClassify;
 import com.gzmu.blog_project.entity.SysDiscuss;
 import com.gzmu.blog_project.repository.SysArticleRepository;
-import com.gzmu.blog_project.repository.SysClassifyRepository;
 import com.gzmu.blog_project.repository.SysDiscussRepository;
 import com.gzmu.blog_project.service.SysDiscussService;
 import org.springframework.beans.factory.annotation.Autowired;

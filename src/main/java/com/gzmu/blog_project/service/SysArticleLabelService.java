@@ -1,6 +1,5 @@
 package com.gzmu.blog_project.service;
 
-import com.gzmu.blog_project.entity.SysArticle;
 import com.gzmu.blog_project.entity.SysArticleLabel;
 
 import java.util.List;

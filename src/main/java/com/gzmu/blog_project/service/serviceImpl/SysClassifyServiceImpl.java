@@ -1,7 +1,6 @@
 package com.gzmu.blog_project.service.serviceImpl;
 
 import com.gzmu.blog_project.entity.SysClassify;
-import com.gzmu.blog_project.repository.SysArticleLabelRepository;
 import com.gzmu.blog_project.repository.SysClassifyRepository;
 import com.gzmu.blog_project.service.SysClassifyService;
 import org.springframework.beans.factory.annotation.Autowired;
