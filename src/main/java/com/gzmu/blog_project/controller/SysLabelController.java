@@ -1,5 +1,6 @@
 package com.gzmu.blog_project.controller;
 
+import com.gzmu.blog_project.entity.SysLabel;
 import com.gzmu.blog_project.service.SysLabelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/label")
-public class SysLabelController {
+public class SysLabelController extends BaseController<SysLabel,Integer,SysLabelService>{
     private final SysLabelService sysLabelService;
 
     @Autowired

@@ -7,6 +7,7 @@ import org.hibernate.annotations.Where;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  * @className: SysFile(文件上传表)
@@ -38,4 +39,10 @@ public class SysFile extends BaseEntity {
      */
     @Column(name = "article_id")
     private Integer articleId;
+
+    /**
+     * 文章实体
+     */
+    @Transient
+    private SysArticle sysArticle;
 }

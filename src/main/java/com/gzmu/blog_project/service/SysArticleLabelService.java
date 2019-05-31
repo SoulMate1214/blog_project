@@ -1,5 +1,6 @@
 package com.gzmu.blog_project.service;
 
+import com.gzmu.blog_project.entity.SysArticle;
 import com.gzmu.blog_project.entity.SysArticleLabel;
 
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
  * @date: created in 上午11:05 19-5-12
  * @modified:
  */
-public interface SysArticleLabelService extends BaseService{
+public interface SysArticleLabelService extends BaseService<SysArticleLabel,Integer>{
     /**
      * 根据文章编号查找
      * @param articleId

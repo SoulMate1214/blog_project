@@ -1,9 +1,13 @@
 package com.gzmu.blog_project.service.serviceImpl;
 
 import com.gzmu.blog_project.entity.SysArticle;
+import com.gzmu.blog_project.repository.SysArticleLabelRepository;
 import com.gzmu.blog_project.repository.SysArticleRepository;
+import com.gzmu.blog_project.repository.SysClassifyRepository;
 import com.gzmu.blog_project.service.SysArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,12 +21,15 @@ import java.util.Optional;
  * @modified:
  */
 @Service
-public class SysArticleServiceImpl implements SysArticleService {
+public class SysArticleServiceImpl extends BaseServiceImpl<SysArticle, Integer, SysArticleRepository>
+        implements SysArticleService {
     private final SysArticleRepository sysArticleRepository;
+    private final SysClassifyRepository sysClassifyRepository;
 
     @Autowired
-    public SysArticleServiceImpl(SysArticleRepository sysArticleRepository) {
+    public SysArticleServiceImpl(SysArticleRepository sysArticleRepository, SysClassifyRepository sysClassifyRepository) {
         this.sysArticleRepository = sysArticleRepository;
+        this.sysClassifyRepository = sysClassifyRepository;
     }
 
     @Override
@@ -38,5 +45,11 @@ public class SysArticleServiceImpl implements SysArticleService {
     @Override
     public void save(SysArticle sysArticle) {
         sysArticleRepository.save(sysArticle);
+    }
+
+    @Override
+    public SysArticle completeEntity(SysArticle entity) {
+        entity.setSysClassify(sysClassifyRepository.getOne(entity.getClassifyId()));
+        return entity;
     }
 }

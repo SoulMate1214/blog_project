@@ -1,5 +1,7 @@
 package com.gzmu.blog_project.service;
 
+import com.gzmu.blog_project.entity.SysRole;
+
 /**
  * @className: SysRoleService
  * @author: 冫soul丶
@@ -7,5 +9,5 @@ package com.gzmu.blog_project.service;
  * @date: created in 下午3:07 19-5-8
  * @modified:
  */
-public interface SysRoleService extends BaseService {
+public interface SysRoleService extends BaseService <SysRole,Integer>{
 }

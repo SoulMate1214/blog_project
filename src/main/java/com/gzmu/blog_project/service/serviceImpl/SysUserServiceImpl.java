@@ -1,5 +1,6 @@
 package com.gzmu.blog_project.service.serviceImpl;
 
+import com.gzmu.blog_project.entity.SysUser;
 import com.gzmu.blog_project.repository.SysUserRepository;
 import com.gzmu.blog_project.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,8 @@ import org.springframework.stereotype.Service;
  * @modified:
  */
 @Service
-public class SysUserServiceImpl implements SysUserService {
+public class SysUserServiceImpl extends BaseServiceImpl<SysUser,Integer, SysUserRepository>
+        implements SysUserService {
     private final SysUserRepository sysUserRepository;
 
     @Autowired
@@ -21,4 +23,8 @@ public class SysUserServiceImpl implements SysUserService {
         this.sysUserRepository = sysUserRepository;
     }
 
+    @Override
+    public SysUser completeEntity(SysUser entity) {
+        return entity;
+    }
 }

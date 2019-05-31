@@ -1,5 +1,6 @@
 package com.gzmu.blog_project.service.serviceImpl;
 
+import com.gzmu.blog_project.entity.SysSetting;
 import com.gzmu.blog_project.repository.SysSettingRepository;
 import com.gzmu.blog_project.service.SysSettingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +14,17 @@ import org.springframework.stereotype.Service;
  * @modified:
  */
 @Service
-public class SysSettingServiceImpl implements SysSettingService {
+public class SysSettingServiceImpl extends BaseServiceImpl<SysSetting,Integer, SysSettingRepository>
+        implements SysSettingService {
     private final SysSettingRepository sysSettingRepository;
 
     @Autowired
     public SysSettingServiceImpl(SysSettingRepository sysSettingRepository) {
         this.sysSettingRepository = sysSettingRepository;
+    }
+
+    @Override
+    public SysSetting completeEntity(SysSetting entity) {
+        return entity;
     }
 }

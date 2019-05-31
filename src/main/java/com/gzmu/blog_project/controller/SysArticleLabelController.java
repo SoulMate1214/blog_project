@@ -20,7 +20,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/articleLabel")
-public class SysArticleLabelController {
+public class SysArticleLabelController extends BaseController<SysArticleLabel,Integer,SysArticleLabelService>{
     private final SysLabelService sysLabelService;
     private final SysArticleLabelService sysArticleLabelService;
 

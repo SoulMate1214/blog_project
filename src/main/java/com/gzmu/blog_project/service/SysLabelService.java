@@ -11,7 +11,7 @@ import java.util.Optional;
  * @date: created in 上午11:08 19-5-12
  * @modified:
  */
-public interface SysLabelService extends BaseService{
+public interface SysLabelService extends BaseService<SysLabel,Integer>{
     /**
      * 根据id查找
      * @param id

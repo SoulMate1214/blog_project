@@ -7,6 +7,7 @@ import org.hibernate.annotations.Where;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  * @className: SysUserRole(用户权限表)
@@ -32,4 +33,16 @@ public class SysUserRole extends  BaseEntity {
      */
     @Column(name = "user_id")
     private Integer userId;
+
+    /**
+     * 角色实体
+     */
+    @Transient
+    private SysRole sysRole;
+
+    /**
+     * 用户实体
+     */
+    @Transient
+    private SysUser sysUser;
 }

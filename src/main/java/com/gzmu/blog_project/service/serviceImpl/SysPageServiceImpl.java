@@ -1,5 +1,6 @@
 package com.gzmu.blog_project.service.serviceImpl;
 
+import com.gzmu.blog_project.entity.SysPage;
 import com.gzmu.blog_project.repository.SysPageRepository;
 import com.gzmu.blog_project.service.SysPageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +14,17 @@ import org.springframework.stereotype.Service;
  * @modified:
  */
 @Service
-public class SysPageServiceImpl implements SysPageService {
+public class SysPageServiceImpl extends BaseServiceImpl<SysPage,Integer, SysPageRepository>
+        implements SysPageService {
     private final SysPageRepository sysPageRepository;
 
     @Autowired
     public SysPageServiceImpl(SysPageRepository sysPageRepository) {
         this.sysPageRepository = sysPageRepository;
+    }
+
+    @Override
+    public SysPage completeEntity(SysPage entity) {
+        return entity;
     }
 }

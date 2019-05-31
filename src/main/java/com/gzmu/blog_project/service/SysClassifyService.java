@@ -11,7 +11,7 @@ import java.util.Optional;
  * @date: created in 下午6:14 19-4-22
  * @modified:
  */
-public interface SysClassifyService extends BaseService{
+public interface SysClassifyService extends BaseService<SysClassify,Integer>{
     /**
      * 根据id查找
      * @param id

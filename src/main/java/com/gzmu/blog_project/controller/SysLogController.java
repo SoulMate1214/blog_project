@@ -1,5 +1,6 @@
 package com.gzmu.blog_project.controller;
 
+import com.gzmu.blog_project.entity.SysLog;
 import com.gzmu.blog_project.service.SysLogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/log")
-public class SysLogController {
+public class SysLogController extends BaseController<SysLog,Integer,SysLogService> {
     private final SysLogService sysLogService;
 
     @Autowired

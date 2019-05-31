@@ -1,5 +1,6 @@
 package com.gzmu.blog_project.controller;
 
+import com.gzmu.blog_project.entity.SysUser;
 import com.gzmu.blog_project.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/user")
-public class SysUserController {
+public class SysUserController extends BaseController<SysUser,Integer,SysUserService>{
     private final SysUserService sysUserService;
 
     @Autowired

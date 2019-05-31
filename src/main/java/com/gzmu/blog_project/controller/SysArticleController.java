@@ -4,12 +4,16 @@ import com.alibaba.fastjson.JSONObject;
 import com.gzmu.blog_project.entity.SysArticle;
 import com.gzmu.blog_project.service.SysArticleService;
 import com.gzmu.blog_project.service.SysClassifyService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.hateoas.PagedResources;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -19,18 +23,13 @@ import java.util.List;
  * @date: created in 下午6:35 19-4-22
  * @modified:
  */
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/article")
-public class SysArticleController {
-    private final SysArticleService sysArticleService;
+public class SysArticleController extends BaseController<SysArticle,Integer,SysArticleService>{
+    private final @NotNull SysArticleService sysArticleService;
 
-    private final SysClassifyService sysClassifyService;
-
-    @Autowired
-    public SysArticleController(SysArticleService sysArticleService,SysClassifyService sysClassifyService) {
-        this.sysArticleService = sysArticleService;
-        this.sysClassifyService = sysClassifyService;
-    }
+    private final @NotNull SysClassifyService sysClassifyService;
 
     /**
      * 获取所有重构的文章对象

@@ -7,6 +7,7 @@ import org.hibernate.annotations.Where;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  * @className: SysArticleLabel
@@ -32,4 +33,16 @@ public class SysArticleLabel extends BaseEntity{
      */
     @Column(name = "label_id")
     private Integer labelId;
+
+    /**
+     * 文章实体
+     */
+    @Transient
+    private SysArticle sysArticle;
+
+    /**
+     * 标签实体
+     */
+    @Transient
+    private SysLabel sysLabel;
 }

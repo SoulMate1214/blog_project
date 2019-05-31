@@ -1,6 +1,9 @@
 package com.gzmu.blog_project.service.serviceImpl;
 
+import com.gzmu.blog_project.entity.SysClassify;
 import com.gzmu.blog_project.entity.SysDiscuss;
+import com.gzmu.blog_project.repository.SysArticleRepository;
+import com.gzmu.blog_project.repository.SysClassifyRepository;
 import com.gzmu.blog_project.repository.SysDiscussRepository;
 import com.gzmu.blog_project.service.SysDiscussService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +19,16 @@ import java.util.List;
  * @modified:
  */
 @Service
-public class SysDiscussServiceImpl implements SysDiscussService {
+public class SysDiscussServiceImpl extends BaseServiceImpl<SysDiscuss,Integer, SysDiscussRepository>
+        implements SysDiscussService {
     private final SysDiscussRepository sysDiscussRepository;
+    private final SysArticleRepository sysArticleRepository;
+
 
     @Autowired
-    public SysDiscussServiceImpl(SysDiscussRepository sysDiscussRepository) {
+    public SysDiscussServiceImpl(SysDiscussRepository sysDiscussRepository, SysArticleRepository sysArticleRepository) {
         this.sysDiscussRepository = sysDiscussRepository;
+        this.sysArticleRepository = sysArticleRepository;
     }
 
     @Override
@@ -37,5 +44,11 @@ public class SysDiscussServiceImpl implements SysDiscussService {
     @Override
     public List<SysDiscuss> findByArticleIdAndParentId(Integer articleId, Integer parentId) {
         return sysDiscussRepository.findByArticleIdAndParentId(articleId, parentId);
+    }
+
+    @Override
+    public SysDiscuss completeEntity(SysDiscuss entity) {
+        entity.setSysArticle(sysArticleRepository.getOne(entity.getArticleId()));
+        return entity;
     }
 }

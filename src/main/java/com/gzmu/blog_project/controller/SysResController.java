@@ -1,5 +1,6 @@
 package com.gzmu.blog_project.controller;
 
+import com.gzmu.blog_project.entity.SysRes;
 import com.gzmu.blog_project.service.SysResService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/res")
-public class SysResController {
+public class SysResController extends BaseController<SysRes,Integer,SysResService>{
     private final SysResService sysResService;
 
     @Autowired

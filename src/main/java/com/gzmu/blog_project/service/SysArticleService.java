@@ -1,6 +1,8 @@
 package com.gzmu.blog_project.service;
 
 import com.gzmu.blog_project.entity.SysArticle;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,7 +14,7 @@ import java.util.Optional;
  * @date: created in 下午6:15 19-4-22
  * @modified:
  */
-public interface SysArticleService extends BaseService{
+public interface SysArticleService extends BaseService<SysArticle,Integer>{
     /**
      * 根据id查找
      * @param id

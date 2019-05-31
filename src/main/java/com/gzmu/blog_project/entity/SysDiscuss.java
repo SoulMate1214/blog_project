@@ -7,6 +7,7 @@ import org.hibernate.annotations.Where;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  * @className: SysDiscuss(评论表)
@@ -38,4 +39,10 @@ public class SysDiscuss extends BaseEntity {
      */
     @Column(name = "message", nullable = false)
     private String message;
+
+    /**
+     * 文章实体
+     */
+    @Transient
+    private SysArticle sysArticle;
 }

@@ -22,7 +22,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/discuss")
-public class SysDiscussController {
+public class SysDiscussController extends BaseController<SysDiscuss,Integer,SysDiscussService>{
     private final SysDiscussService sysDiscussService;
 
     @Autowired

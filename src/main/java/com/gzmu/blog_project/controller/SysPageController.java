@@ -1,5 +1,6 @@
 package com.gzmu.blog_project.controller;
 
+import com.gzmu.blog_project.entity.SysPage;
 import com.gzmu.blog_project.service.SysPageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/page")
-public class SysPageController {
+public class SysPageController extends BaseController<SysPage,Integer,SysPageService> {
     private final SysPageService sysPageService;
 
     @Autowired

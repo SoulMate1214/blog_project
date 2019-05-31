@@ -12,7 +12,7 @@ import java.util.List;
  * @date: created in 下午6:14 19-4-22
  * @modified:
  */
-public interface SysDiscussService extends BaseService {
+public interface SysDiscussService extends BaseService <SysDiscuss,Integer> {
     /**
      * 保存
      */

@@ -1,5 +1,6 @@
 package com.gzmu.blog_project.controller;
 
+import com.gzmu.blog_project.entity.SysClassify;
 import com.gzmu.blog_project.service.SysClassifyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/classify")
-public class SysClassifyController {
+public class SysClassifyController extends BaseController<SysClassify,Integer,SysClassifyService>{
     private final SysClassifyService sysClassifyService;
 
     @Autowired

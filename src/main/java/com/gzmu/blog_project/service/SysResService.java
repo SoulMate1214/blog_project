@@ -1,5 +1,7 @@
 package com.gzmu.blog_project.service;
 
+import com.gzmu.blog_project.entity.SysRes;
+
 /**
  * @className: SysResService
  * @author: 冫soul丶
@@ -7,5 +9,5 @@ package com.gzmu.blog_project.service;
  * @date: created in 下午3:07 19-5-8
  * @modified:
  */
-public interface SysResService extends BaseService {
+public interface SysResService extends BaseService <SysRes,Integer>{
 }

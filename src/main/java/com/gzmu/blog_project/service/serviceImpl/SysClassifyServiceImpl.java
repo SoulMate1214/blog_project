@@ -1,6 +1,7 @@
 package com.gzmu.blog_project.service.serviceImpl;
 
 import com.gzmu.blog_project.entity.SysClassify;
+import com.gzmu.blog_project.repository.SysArticleLabelRepository;
 import com.gzmu.blog_project.repository.SysClassifyRepository;
 import com.gzmu.blog_project.service.SysClassifyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,8 @@ import java.util.Optional;
  * @modified:
  */
 @Service
-public class SysClassifyServiceImpl implements SysClassifyService {
+public class SysClassifyServiceImpl extends BaseServiceImpl<SysClassify,Integer, SysClassifyRepository>
+        implements SysClassifyService {
     private final SysClassifyRepository sysClassifyRepository;
 
     @Autowired
@@ -27,5 +29,10 @@ public class SysClassifyServiceImpl implements SysClassifyService {
     @Override
     public Optional<SysClassify> findById(Integer id) {
         return sysClassifyRepository.findById(id);
+    }
+
+    @Override
+    public SysClassify completeEntity(SysClassify entity) {
+        return entity;
     }
 }

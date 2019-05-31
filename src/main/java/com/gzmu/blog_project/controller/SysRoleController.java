@@ -1,5 +1,6 @@
 package com.gzmu.blog_project.controller;
 
+import com.gzmu.blog_project.entity.SysRole;
 import com.gzmu.blog_project.service.SysRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/role")
-public class SysRoleController {
+public class SysRoleController extends BaseController<SysRole,Integer,SysRoleService>{
     private final SysRoleService sysRoleService;
 
     @Autowired

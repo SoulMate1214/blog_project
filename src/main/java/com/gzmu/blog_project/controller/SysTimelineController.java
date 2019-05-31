@@ -1,5 +1,6 @@
 package com.gzmu.blog_project.controller;
 
+import com.gzmu.blog_project.entity.SysTimeline;
 import com.gzmu.blog_project.service.SysTimelineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/timeline")
-public class SysTimelineController {
+public class SysTimelineController extends BaseController<SysTimeline,Integer,SysTimelineService>{
     private final SysTimelineService sysTimelineService;
 
     @Autowired

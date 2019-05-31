@@ -1,5 +1,6 @@
 package com.gzmu.blog_project.service.serviceImpl;
 
+import com.gzmu.blog_project.entity.SysRole;
 import com.gzmu.blog_project.repository.SysRoleRepository;
 import com.gzmu.blog_project.service.SysRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +14,17 @@ import org.springframework.stereotype.Service;
  * @modified:
  */
 @Service
-public class SysRoleServiceImpl implements SysRoleService {
+public class SysRoleServiceImpl extends BaseServiceImpl<SysRole,Integer, SysRoleRepository>
+        implements SysRoleService {
     private final SysRoleRepository sysRoleRepository;
 
     @Autowired
     public SysRoleServiceImpl(SysRoleRepository sysRoleRepository) {
         this.sysRoleRepository = sysRoleRepository;
+    }
+
+    @Override
+    public SysRole completeEntity(SysRole entity) {
+        return entity;
     }
 }
