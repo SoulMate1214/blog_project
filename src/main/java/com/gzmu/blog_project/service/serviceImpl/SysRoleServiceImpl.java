@@ -24,7 +24,10 @@ public class SysRoleServiceImpl extends BaseServiceImpl<SysRole,Integer, SysRole
     }
 
     @Override
-    public SysRole completeEntity(SysRole entity) {
-        return entity;
+    protected SysRole competeEntity(SysRole sysRole) {
+        if (sysRole.getParentId() != null) {
+            sysRole.setSysRole(sysRoleRepository.getOne(sysRole.getParentId()));
+        }
+        return sysRole;
     }
 }

@@ -23,8 +23,4 @@ public class SysSettingServiceImpl extends BaseServiceImpl<SysSetting,Integer, S
         this.sysSettingRepository = sysSettingRepository;
     }
 
-    @Override
-    public SysSetting completeEntity(SysSetting entity) {
-        return entity;
-    }
 }

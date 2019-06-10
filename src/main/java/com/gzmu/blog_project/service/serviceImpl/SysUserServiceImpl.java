@@ -23,8 +23,4 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser,Integer, SysUser
         this.sysUserRepository = sysUserRepository;
     }
 
-    @Override
-    public SysUser completeEntity(SysUser entity) {
-        return entity;
-    }
 }

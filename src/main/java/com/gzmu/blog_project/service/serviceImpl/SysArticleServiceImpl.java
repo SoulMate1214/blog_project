@@ -45,8 +45,10 @@ public class SysArticleServiceImpl extends BaseServiceImpl<SysArticle, Integer, 
     }
 
     @Override
-    public SysArticle completeEntity(SysArticle entity) {
-        entity.setSysClassify(sysClassifyRepository.getOne(entity.getClassifyId()));
-        return entity;
+    protected SysArticle competeEntity(SysArticle sysArticle) {
+        if (sysArticle.getClassifyId() != null) {
+            sysArticle.setSysClassify(sysClassifyRepository.getOne(sysArticle.getClassifyId()));
+        }
+        return sysArticle;
     }
 }

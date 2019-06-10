@@ -37,9 +37,13 @@ public class SysArticleLabelServiceImpl extends BaseServiceImpl<SysArticleLabel,
     }
 
     @Override
-    public SysArticleLabel completeEntity(SysArticleLabel entity) {
-        entity.setSysArticle(sysArticleRepository.getOne(entity.getArticleId()));
-        entity.setSysLabel(sysLabelRepository.getOne(entity.getLabelId()));
-        return entity;
+    protected SysArticleLabel competeEntity(SysArticleLabel sysArticleLabel) {
+        if (sysArticleLabel.getArticleId() != null) {
+            sysArticleLabel.setSysArticle(sysArticleRepository.getOne(sysArticleLabel.getArticleId()));
+        }
+        if (sysArticleLabel.getLabelId()!=null){
+            sysArticleLabel.setSysLabel(sysLabelRepository.getOne(sysArticleLabel.getLabelId()));
+        }
+        return sysArticleLabel;
     }
 }

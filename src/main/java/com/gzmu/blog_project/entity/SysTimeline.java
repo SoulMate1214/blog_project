@@ -1,5 +1,6 @@
 package com.gzmu.blog_project.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.Where;
@@ -20,6 +21,7 @@ import javax.persistence.Table;
 @Table(name = "sys_timeline")
 @Entity(name = "sys_timeline")
 @Where(clause = "is_enable = 1")
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler", "fieldHandler"})
 public class SysTimeline extends BaseEntity{
     /**
      * 历程内容

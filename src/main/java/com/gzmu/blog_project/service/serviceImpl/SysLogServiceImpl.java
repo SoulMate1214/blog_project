@@ -23,8 +23,4 @@ public class SysLogServiceImpl extends BaseServiceImpl<SysLog,Integer, SysLogRep
         this.sysLogRepository = sysLogRepository;
     }
 
-    @Override
-    public SysLog completeEntity(SysLog entity) {
-        return entity;
-    }
 }

@@ -29,9 +29,4 @@ public class SysClassifyServiceImpl extends BaseServiceImpl<SysClassify,Integer,
     public Optional<SysClassify> findById(Integer id) {
         return sysClassifyRepository.findById(id);
     }
-
-    @Override
-    public SysClassify completeEntity(SysClassify entity) {
-        return entity;
-    }
 }

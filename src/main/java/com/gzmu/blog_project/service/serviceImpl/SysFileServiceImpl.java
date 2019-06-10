@@ -27,8 +27,10 @@ public class SysFileServiceImpl extends BaseServiceImpl<SysFile,Integer, SysFile
     }
 
     @Override
-    public SysFile completeEntity(SysFile entity) {
-        entity.setSysArticle(sysArticleRepository.getOne(entity.getArticleId()));
-        return entity;
+    protected SysFile competeEntity(SysFile sysFile) {
+        if (sysFile.getArticleId() != null) {
+            sysFile.setSysArticle(sysArticleRepository.getOne(sysFile.getArticleId()));
+        }
+        return sysFile;
     }
 }

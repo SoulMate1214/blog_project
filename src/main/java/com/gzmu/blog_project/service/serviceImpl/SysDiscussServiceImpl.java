@@ -45,8 +45,13 @@ public class SysDiscussServiceImpl extends BaseServiceImpl<SysDiscuss,Integer, S
     }
 
     @Override
-    public SysDiscuss completeEntity(SysDiscuss entity) {
-        entity.setSysArticle(sysArticleRepository.getOne(entity.getArticleId()));
-        return entity;
+    protected SysDiscuss competeEntity(SysDiscuss sysDiscuss) {
+        if (sysDiscuss.getArticleId() != null) {
+            sysDiscuss.setSysArticle(sysArticleRepository.getOne(sysDiscuss.getArticleId()));
+        }
+        if (sysDiscuss.getParentId() != null) {
+            sysDiscuss.setSysDiscuss(sysDiscussRepository.getOne(sysDiscuss.getParentId()));
+        }
+        return sysDiscuss;
     }
 }

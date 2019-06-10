@@ -1,5 +1,6 @@
 package com.gzmu.blog_project.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.Where;
@@ -21,6 +22,7 @@ import javax.persistence.Transient;
 @Table(name = "sys_discuss")
 @Entity(name = "sys_discuss")
 @Where(clause = "is_enable = 1")
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler", "fieldHandler"})
 public class SysDiscuss extends BaseEntity {
     /**
      * 关联父级评论id

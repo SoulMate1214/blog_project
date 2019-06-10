@@ -1,5 +1,6 @@
 package com.gzmu.blog_project.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.Where;
@@ -21,6 +22,7 @@ import javax.persistence.Transient;
 @Table(name = "sys_article_label")
 @Entity(name = "sys_article_label")
 @Where(clause = "is_enable = 1")
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler", "fieldHandler"})
 public class SysArticleLabel extends BaseEntity{
     /**
      * 文章编号

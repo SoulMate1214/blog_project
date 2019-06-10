@@ -24,7 +24,10 @@ public class SysResServiceImpl extends BaseServiceImpl<SysRes,Integer, SysResRep
     }
 
     @Override
-    public SysRes completeEntity(SysRes entity) {
-        return entity;
+    protected SysRes competeEntity(SysRes sysRes) {
+        if (sysRes.getParentId() != null) {
+            sysRes.setSysRes(sysResRepository.getOne(sysRes.getParentId()));
+        }
+        return sysRes;
     }
 }

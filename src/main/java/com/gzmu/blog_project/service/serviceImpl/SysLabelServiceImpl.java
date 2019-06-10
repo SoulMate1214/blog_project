@@ -29,9 +29,4 @@ public class SysLabelServiceImpl extends BaseServiceImpl<SysLabel,Integer, SysLa
     public Optional<SysLabel> findById(Integer id) {
         return sysLabelRepository.findById(id);
     }
-
-    @Override
-    public SysLabel completeEntity(SysLabel entity) {
-        return entity;
-    }
 }

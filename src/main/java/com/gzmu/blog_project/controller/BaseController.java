@@ -4,11 +4,10 @@ import com.gzmu.blog_project.entity.BaseEntity;
 import com.gzmu.blog_project.service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.hateoas.PagedResources;
 import org.springframework.hateoas.Resource;
+import org.springframework.hateoas.Resources;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +21,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @SuppressWarnings("all")
 public class BaseController <E extends BaseEntity,ID,S extends BaseService<E,ID>>{
 
+    @Autowired
     private S baseService;
 
     @Autowired
@@ -40,7 +40,7 @@ public class BaseController <E extends BaseEntity,ID,S extends BaseService<E,ID>
     }
 
     @GetMapping("/searchAll")
-    public HttpEntity<?> resources(@PageableDefault(sort = {"sort", "id"}) Pageable pageable) {
-        return ResponseEntity.ok(pagedResources(baseService.searchAll(pageable)));
+    public HttpEntity<?> resources() {
+        return ResponseEntity.ok(Resources.wrap(baseService.searchAll()));
     }
 }

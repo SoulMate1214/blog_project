@@ -22,9 +22,4 @@ public class SysPageServiceImpl extends BaseServiceImpl<SysPage,Integer, SysPage
     public SysPageServiceImpl(SysPageRepository sysPageRepository) {
         this.sysPageRepository = sysPageRepository;
     }
-
-    @Override
-    public SysPage completeEntity(SysPage entity) {
-        return entity;
-    }
 }

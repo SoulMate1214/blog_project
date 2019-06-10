@@ -23,8 +23,4 @@ public class SysTimelineServiceImpl extends BaseServiceImpl<SysTimeline,Integer,
         this.sysTimelineRepository = sysTimelineRepository;
     }
 
-    @Override
-    public SysTimeline completeEntity(SysTimeline entity) {
-        return entity;
-    }
 }

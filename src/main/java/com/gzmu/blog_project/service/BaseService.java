@@ -1,8 +1,8 @@
 package com.gzmu.blog_project.service;
 
 import com.gzmu.blog_project.entity.BaseEntity;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+
+import java.util.List;
 
 /**
  * @className: BaseService
@@ -16,5 +16,5 @@ public interface BaseService<E extends BaseEntity,ID> {
      * 全查,包括外在实体
      * @return
      */
-    Page<E> searchAll(Pageable pageable);
+    List<E> searchAll();
 }
