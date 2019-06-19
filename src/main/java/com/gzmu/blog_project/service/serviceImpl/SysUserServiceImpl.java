@@ -23,4 +23,8 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser,Integer, SysUser
         this.sysUserRepository = sysUserRepository;
     }
 
+    @Override
+    public SysUser findByEmail(String email) {
+        return sysUserRepository.findByEmail(email);
+    }
 }

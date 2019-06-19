@@ -23,6 +23,10 @@ public abstract class BaseServiceImpl<E extends BaseEntity,ID,R extends BaseRepo
     @Autowired
     private R baseRepository;
 
+    /**
+     * 全查,包括外在实体
+     * @return
+     */
     @Override
     public List<E> searchAll() {
         return baseRepository.findAll().stream()
@@ -30,8 +34,34 @@ public abstract class BaseServiceImpl<E extends BaseEntity,ID,R extends BaseRepo
                 .collect(Collectors.toList());
     }
 
+    /**
+     * 获取联查之后的新对象
+     * @param e
+     * @return
+     */
     protected E competeEntity(E e) {
         return e;
+    }
+
+    /**
+     * 根据多个id查询
+     *
+     * @param ids
+     * @return
+     */
+    @Override
+    public List<E> findAllById(List<Integer> ids) {
+        return baseRepository.findAllById((Iterable<ID>) ids);
+    }
+
+    /**
+     * 删除批量数据
+     *
+     * @param entity
+     */
+    @Override
+    public void deleteInBatch(List<E> entity) {
+        baseRepository.deleteInBatch(entity);
     }
 
 }

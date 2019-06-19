@@ -10,4 +10,10 @@ import com.gzmu.blog_project.entity.SysUser;
  * @modified:
  */
 public interface SysUserService extends BaseService <SysUser,Integer>{
+    /**
+     * 根据邮箱查找
+     * @param email
+     * @return
+     */
+    SysUser findByEmail(String email);
 }

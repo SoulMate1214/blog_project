@@ -12,4 +12,10 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
  */
 @RepositoryRestResource
 public interface SysUserRepository extends BaseRepository<SysUser, Integer> {
+    /**
+     * 根据邮箱查找
+     * @param email
+     * @return
+     */
+    SysUser findByEmail(String email);
 }

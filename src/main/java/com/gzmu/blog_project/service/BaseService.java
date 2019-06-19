@@ -17,4 +17,17 @@ public interface BaseService<E extends BaseEntity,ID> {
      * @return
      */
     List<E> searchAll();
+
+    /**
+     * 根据多个id查询
+     * @param ids
+     * @return
+     */
+    List<E> findAllById(List<Integer> ids);
+
+    /**
+     * 删除批量数据
+     * @param entity
+     */
+    void deleteInBatch(List<E> entity);
 }
