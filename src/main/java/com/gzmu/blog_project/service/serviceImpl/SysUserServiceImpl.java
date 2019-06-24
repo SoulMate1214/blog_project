@@ -51,7 +51,6 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser,Integer, SysUser
         loginTicket.setStatus(1);
         loginTicket.setTicket(JWT.create().withAudience(String.valueOf(sysUser.getId()))
                 .sign(Algorithm.HMAC256(sysUser.getPassword())));
-        System.out.println("生成ticket: "+ JSONObject.toJSONString(loginTicket));
         return loginTicket;
     }
 

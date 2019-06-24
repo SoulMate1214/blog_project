@@ -52,7 +52,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
             LoginToken loginToken = method.getAnnotation(LoginToken.class);
             if (loginToken.required()) {
                 if (token == null) {
-                    throw new RuntimeException("无token，请重新登录");
+                    throw new RuntimeException("无token，无法请求，请重新登录");
                 }
                 String userId;
                 try {
