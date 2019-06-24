@@ -1,6 +1,9 @@
 package com.gzmu.blog_project.service;
 
+import com.gzmu.blog_project.entity.LoginTicket;
 import com.gzmu.blog_project.entity.SysUser;
+
+import java.util.Optional;
 
 /**
  * @className: SysUserService
@@ -16,4 +19,18 @@ public interface SysUserService extends BaseService <SysUser,Integer>{
      * @return
      */
     SysUser findByEmail(String email);
+
+    /**
+     * token生成
+     * @param email
+     * @return
+     */
+    LoginTicket getToken(String email);
+
+    /**
+     * 根据id查找
+     * @param id
+     * @return
+     */
+    Optional<SysUser> findById(int id);
 }

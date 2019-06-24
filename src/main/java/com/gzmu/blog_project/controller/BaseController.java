@@ -2,6 +2,7 @@ package com.gzmu.blog_project.controller;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.gzmu.blog_project.auth.LoginToken;
 import com.gzmu.blog_project.entity.BaseEntity;
 import com.gzmu.blog_project.service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,11 +48,13 @@ public class BaseController <E extends BaseEntity,ID,S extends BaseService<E,ID>
         return myPagedResourcesAssembler.toResource(page);
     }
 
+    @LoginToken
     @GetMapping("/searchAll")
     public HttpEntity<?> resources() {
         return ResponseEntity.ok(Resources.wrap(baseService.searchAll()));
     }
 
+    @LoginToken
     @PostMapping("/batchDelete")
     public void deleteMany(@RequestBody JSONObject jsonParam){
         List<Integer> ids = new ArrayList();

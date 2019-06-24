@@ -1,15 +1,14 @@
 package com.gzmu.blog_project.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.gzmu.blog_project.auth.LoginToken;
+import com.gzmu.blog_project.auth.PassToken;
 import com.gzmu.blog_project.entity.SysUser;
 import com.gzmu.blog_project.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @className: SysUserController
@@ -28,18 +27,22 @@ public class SysUserController extends BaseController<SysUser, Integer, SysUserS
         this.sysUserService = sysUserService;
     }
 
+    @PassToken
     @PostMapping("/login")
-    public int login(@RequestBody JSONObject jsonParam) {
+    public HttpEntity<?> login(@RequestBody JSONObject jsonParam) {
         String name = jsonParam.getString("name"), email = jsonParam.getString("email"), password = jsonParam.getString("password");
         if (name != null || email != null || password != null) {
             SysUser sysUser = sysUserService.findByEmail(email);
             if (sysUser != null && sysUser.getName().equals(name) && sysUser.getPassword().equals(password)) {
-                return 1;
-            } else {
-                return 0;
+                return ResponseEntity.ok(sysUserService.getToken(email));
             }
-        } else {
-            return 0;
         }
+        return ResponseEntity.status(400).body(new Object());
+    }
+
+    @LoginToken
+    @GetMapping("/getMessage")
+    public String getMessage(){
+        return "你已通过验证";
     }
 }
