@@ -40,6 +40,10 @@ public class SysUserController extends BaseController<SysUser, Integer, SysUserS
         return ResponseEntity.status(400).body(new Object());
     }
 
+    /**
+     * 测试拦截器
+     * @return
+     */
     @LoginToken
     @GetMapping("/getMessage")
     public String getMessage(){
