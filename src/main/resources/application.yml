@@ -64,3 +64,23 @@ spring:
     port: 5672
     username: guest
     password: guest
+
+
+  # 图片访问的url路径(http://127.0.0.1/articleImage/**)
+  mvc:
+    static-path-pattern: /articleImage/**
+
+  # 图片资源路径(绝对)
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${web.image-upload-path}
+
+  # 文件大小设定(前者是单个大小,后者是单次大小)
+  servlet:
+    multipart:
+      max-file-size: 30MB
+      max-request-size: 300MB
+
+# 定义绝对路径
+web:
+  image-upload-path: /home/soul/Templates/WorkSpace/blog_project/src/main/resources/articleImage/
+

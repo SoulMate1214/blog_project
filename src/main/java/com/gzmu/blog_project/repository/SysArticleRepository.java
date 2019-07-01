@@ -12,4 +12,10 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
  */
 @RepositoryRestResource
 public interface SysArticleRepository extends BaseRepository<SysArticle, Integer> {
+    /**
+     * 根据文章内容查找
+     * @param message
+     * @return
+     */
+    SysArticle findByMessage(String message);
 }

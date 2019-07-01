@@ -13,6 +13,19 @@ services:
       redis-server
     restart: always
 
+  #docker快速启动mysql
+  lesson-cloud-mysql:
+    container_name: mysql-dev
+    image: mysql:8
+    ports:
+      - 3306:3306
+    volumes:
+      - "${MYSQL_DIR}/data:/var/lib/mysql"
+      - "${MYSQL_DIR}/conf.d:/etc/mysql/conf.d"
+    environment:
+      # environment variables
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+
   #docker快速启动rabbitmq
   lesson-cloud-rabbitmq:
     container_name: rabbitmq-dev

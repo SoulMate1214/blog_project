@@ -1,5 +1,6 @@
 package com.gzmu.blog_project.service;
 
+import com.alibaba.fastjson.JSONObject;
 import com.gzmu.blog_project.entity.SysArticle;
 
 import java.util.List;
@@ -30,4 +31,18 @@ public interface SysArticleService extends BaseService<SysArticle,Integer>{
      * 保存
      */
     void save(SysArticle sysArticle);
+
+    /**
+     * 根据文章内容查找
+     * @param message
+     * @return
+     */
+    SysArticle findByMessage(String message);
+
+    /**
+     * 添加文章
+     *
+     * @param jsonParam
+     */
+    public void saveArticle( JSONObject jsonParam);
 }
