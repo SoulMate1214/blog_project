@@ -64,4 +64,13 @@ public abstract class BaseServiceImpl<E extends BaseEntity,ID,R extends BaseRepo
         baseRepository.deleteInBatch(entity);
     }
 
+    /**
+     * 保存或修改
+     * @param entity
+     * @return
+     */
+    @Override
+    public E saveOne(E entity) {
+        return baseRepository.save(entity);
+    }
 }

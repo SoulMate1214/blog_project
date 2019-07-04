@@ -30,4 +30,11 @@ public interface BaseService<E extends BaseEntity,ID> {
      * @param entity
      */
     void deleteInBatch(List<E> entity);
+
+    /**
+     * 保存或修改
+     * @param entity
+     * @return
+     */
+    E saveOne(E entity);
 }
