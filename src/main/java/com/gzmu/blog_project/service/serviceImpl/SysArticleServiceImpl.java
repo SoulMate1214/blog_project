@@ -71,7 +71,6 @@ public class SysArticleServiceImpl extends BaseServiceImpl<SysArticle, Integer, 
         Date date = new Date();
         SysArticle sysArticle = new SysArticle();
         SysArticle sysArticle1;
-        sysArticle.setStatus(1);
         sysArticle.setLikeCount(0);
         sysArticle.setBrowseCount(0);
         sysArticle.setCreateTime(date);
@@ -79,6 +78,7 @@ public class SysArticleServiceImpl extends BaseServiceImpl<SysArticle, Integer, 
         sysArticle.setCreateUser("admin");
         sysArticle.setModifyUser("admin");
         sysArticle.setName(jsonParam.getString("name"));
+        sysArticle.setStatus(jsonParam.getString("status"));
         sysArticle.setMessage(jsonParam.getString("message"));
         sysArticle.setIsEnable(jsonParam.getBoolean("isEnable"));
         sysArticle.setClassifyId(jsonParam.getInteger("classify"));
@@ -89,7 +89,7 @@ public class SysArticleServiceImpl extends BaseServiceImpl<SysArticle, Integer, 
                 SysArticleLabel sysArticleLabel = new SysArticleLabel();
                 sysArticleLabel.setArticleId(sysArticle1.getId());
                 sysArticleLabel.setLabelId((Integer) jsonParam.getJSONArray("label").get(i));
-                sysArticleLabel.setStatus(1);
+                sysArticleLabel.setStatus("");
                 sysArticleLabel.setIsEnable(true);
                 sysArticleLabel.setCreateTime(date);
                 sysArticleLabel.setModifyTime(date);
@@ -103,7 +103,7 @@ public class SysArticleServiceImpl extends BaseServiceImpl<SysArticle, Integer, 
                 sysFile.setName("文章:'"+sysArticle1.getName()+"'的文件");
                 sysFile.setUrl((String) jsonParam.getJSONArray("imageUrl").get(i));
                 sysFile.setType("图片");
-                sysFile.setStatus(1);
+                sysFile.setStatus("");
                 sysFile.setIsEnable(true);
                 sysFile.setCreateTime(date);
                 sysFile.setModifyTime(date);

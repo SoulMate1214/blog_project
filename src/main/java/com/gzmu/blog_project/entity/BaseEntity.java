@@ -50,7 +50,7 @@ public class BaseEntity implements Serializable {
      * 状态
      */
     @Column(name = "status")
-    private Integer status;
+    private String status;
 
     /**
      * 备注

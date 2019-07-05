@@ -62,7 +62,7 @@ public class SysDiscussController extends BaseController<SysDiscuss,Integer,SysD
         Date date = new Date();
         SysDiscuss sysDiscuss = new SysDiscuss();
         sysDiscuss.setParentId(1);
-        sysDiscuss.setStatus(1);
+        sysDiscuss.setStatus("");
         sysDiscuss.setArticleId(jsonParam.getInteger("articleId"));
         sysDiscuss.setMessage(jsonParam.getString("message"));
         sysDiscuss.setCreateTime(date);
@@ -81,7 +81,7 @@ public class SysDiscussController extends BaseController<SysDiscuss,Integer,SysD
     public void saveReplyDiscuss(@RequestBody JSONObject jsonParam) {
         Date date = new Date();
         SysDiscuss sysDiscuss = new SysDiscuss();
-        sysDiscuss.setStatus(1);
+        sysDiscuss.setStatus("");
         sysDiscuss.setParentId(jsonParam.getInteger("parentId"));
         sysDiscuss.setArticleId(jsonParam.getInteger("articleId"));
         sysDiscuss.setMessage(jsonParam.getString("message"));

@@ -56,7 +56,7 @@ public class RabbitProducer {
     public void logMessageGenerate(){
         Date date = new Date();
         SysLog sysLog = new SysLog();
-        sysLog.setStatus(1);
+        sysLog.setStatus("");
         sysLog.setCreateTime(date);
         sysLog.setModifyTime(date);
         sysLog.setCreateUser("admin");
