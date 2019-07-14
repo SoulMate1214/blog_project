@@ -2,7 +2,7 @@ create table sys_classify
 (
     id          int auto_increment comment '编号'
         primary key,
-    name        varchar(255) not null comment '分类名称',
+    name        varchar(255) null comment '分类名称',
     sort        int          null comment '排序',
     status      varchar(255) null comment '状态',
     remark      varchar(255) null comment '备注',
@@ -18,11 +18,11 @@ create table sys_article
 (
     id           int auto_increment comment '编号'
         primary key,
-    name         varchar(255)   not null comment '文章名',
-    message      varchar(15000) not null comment '文章内容',
-    browse_count int default 0  not null comment '浏览量，默认0',
-    like_count   int default 0  not null comment '点赞数',
-    classify_id  int            not null comment '文章分类编号',
+    name         varchar(255)   null comment '文章名',
+    message      varchar(15000) null comment '文章内容',
+    browse_count int default 0  null comment '浏览量，默认0',
+    like_count   int default 0  null comment '点赞数',
+    classify_id  int            null comment '文章分类编号',
     sort         int            null comment '排序',
     status       varchar(255)   null comment '封面',
     remark       varchar(255)   null comment '备注',
@@ -43,7 +43,7 @@ create table sys_discuss
     name        varchar(11)    null comment '名称',
     parent_id   int            null comment '父级编号',
     article_id  int            null comment '文章编号',
-    message     varchar(10000) not null comment '评论内容',
+    message     varchar(10000) null comment '评论内容',
     sort        int            null comment '排序',
     status      varchar(255)   null comment '状态',
     remark      varchar(255)   null comment '备注',
@@ -63,9 +63,9 @@ create table sys_file
 (
     id          int auto_increment comment '编号'
         primary key,
-    name        varchar(255) not null comment '文件名',
-    url         varchar(255) not null comment '文件路径',
-    type        varchar(10)  not null comment '1：封面、2：文章内容图片、3：其他',
+    name        varchar(255) null comment '文件名',
+    url         varchar(255) null comment '文件路径',
+    type        varchar(10)  null comment '1：封面、2：文章内容图片、3：其他',
     article_id  int          null comment '文章编号',
     sort        int          null comment '排序',
     status      varchar(255) null comment '状态',
@@ -84,7 +84,7 @@ create table sys_label
 (
     id          int auto_increment comment '编号'
         primary key,
-    name        varchar(255) not null comment '标签名',
+    name        varchar(255) null comment '标签名',
     sort        int          null comment '排序',
     status      varchar(255) null comment '状态',
     remark      varchar(255) null comment '备注',
@@ -101,8 +101,8 @@ create table sys_article_label
     id          int auto_increment comment '编号'
         primary key,
     name        varchar(255) null comment '名称',
-    article_id  int          not null comment '文章编号',
-    label_id    int          not null comment '标签编号',
+    article_id  int          null comment '文章编号',
+    label_id    int          null comment '标签编号',
     sort        int          null comment '排序',
     status      varchar(255) null comment '状态',
     remark      varchar(255) null comment '备注',
@@ -143,8 +143,8 @@ create table sys_page
 (
     id          int auto_increment comment '编号'
         primary key,
-    name        varchar(255) not null comment '页面名称',
-    url         varchar(255) not null comment '页面路径',
+    name        varchar(255) null comment '页面名称',
+    url         varchar(255) null comment '页面路径',
     sort        int          null comment '排序',
     status      varchar(255) null comment '状态',
     remark      varchar(255) null comment '备注',
@@ -206,8 +206,8 @@ create table sys_role_res
     id          int auto_increment comment '编号'
         primary key,
     name        varchar(255) null comment '名称',
-    role_id     int          not null comment '角色编号',
-    res_id      int          not null comment '权限资源编号',
+    role_id     int          null comment '角色编号',
+    res_id      int          null comment '权限资源编号',
     sort        int          null comment '排序',
     status      varchar(255) null comment '状态',
     remark      varchar(255) null comment '备注',
@@ -248,8 +248,8 @@ create table sys_timeline
 (
     id          int auto_increment comment '编号'
         primary key,
-    name        varchar(255)   not null comment '名称',
-    message     varchar(15000) not null comment '历程内容',
+    name        varchar(255)   null comment '名称',
+    message     varchar(15000) null comment '历程内容',
     sort        int            null comment '排序',
     status      varchar(255)   null comment '状态',
     remark      varchar(255)   null comment '备注',
@@ -265,8 +265,8 @@ create table sys_user
 (
     id          int auto_increment comment '编号'
         primary key,
-    name        varchar(255) not null comment '用户名',
-    password    varchar(255) not null comment '密码',
+    name        varchar(255) null comment '用户名',
+    password    varchar(255) null comment '密码',
     email       varchar(255) null comment '邮箱',
     qq          int          null comment 'qq号',
     github      varchar(255) null comment 'github账号',
@@ -286,8 +286,8 @@ create table sys_user_role
     id          int auto_increment comment '编号'
         primary key,
     name        varchar(255) null comment '名称',
-    user_id     int          not null comment '用户编号',
-    role_id     int          not null comment '角色编号',
+    user_id     int          null comment '用户编号',
+    role_id     int          null comment '角色编号',
     sort        int          null comment '排序',
     status      varchar(255) null comment '状态',
     remark      varchar(255) null comment '备注',
@@ -302,4 +302,3 @@ create table sys_user_role
         foreign key (user_id) references sys_user (id)
 )
     comment '用户角色关联' charset = utf8;
-

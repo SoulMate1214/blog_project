@@ -11,6 +11,7 @@
     </parent>
 
     <!--基本配置-->
+    <packaging>war</packaging>
     <groupId>com.gzmu</groupId>
     <artifactId>blog_project</artifactId>
     <version>0.0.1-SNAPSHOT</version>
