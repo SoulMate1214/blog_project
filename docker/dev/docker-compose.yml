@@ -1,38 +1,61 @@
+# 版本(V3版本支持单机模式也支持多机模式)
 version: "3"
+# 容器配置
 services:
-  #docker快速启动redis
-  lesson-cloud-redis:
+  # redis
+  redis:
+    # 镜像
+    image: redis:latest
+    # 容器名称
     container_name: redis-dev
-    image: redis:5
-    ports: 
+    # 主机端口转发容器端口
+    ports:
       - 6379:6379
-    volumes:
-      - "${REDIS_DIR}/conf:/usr/local/etc/redis"
-      - "${REDIS_DIR}/data:/data"
-    command: 
-      redis-server
+    # 总是自启
     restart: always
+    # 设置挂载卷(-本地的目录名称：容器中的目录名称)
+    volumes:
+      # 挂载数据目录
+      - "${REDIS_DIR}/data:/data"
+      # 挂载配置文件目录
+      - "${REDIS_DIR}/config:/usr/local/etc/redis"
 
-  #docker快速启动mysql
-  lesson-cloud-mysql:
+  # mysql
+  mysql:
+    # 镜像
+    image: mysql:latest
+    # 容器名称
     container_name: mysql-dev
-    image: mysql:8
+    # 主机端口转发容器端口
     ports:
       - 3306:3306
+    # 总是自启
+    restart: always
+    # 设置挂载卷
     volumes:
+      # 挂载数据目录
       - "${MYSQL_DIR}/data:/var/lib/mysql"
-      - "${MYSQL_DIR}/conf.d:/etc/mysql/conf.d"
+      # 挂载配置文件目录
+      - "${MYSQL_DIR}/config:/etc/mysql/conf.d"
+    # 环境读取
     environment:
-      # environment variables
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
 
-  #docker快速启动rabbitmq
-  lesson-cloud-rabbitmq:
-    container_name: rabbitmq-dev
+  # rabbitmq(基于dockerfile文件构建镜像，不需重新拉取镜像)
+  rabbitmq:
+    # 镜像
+    image: rabbitmq:latest
+    # 找到rabbitmq目录，读取里面的dockerfile文件在里面构建容器
     build: ./rabbitmq/
-    environment: 
+    # 容器名称
+    container_name: rabbitmq-dev
+    # 总是自启
+    restart: always
+    # 环境读取
+    environment:
       - RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER}
       - RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS}
+    # 主机端口转发容器端口
     ports:
       - "5672:5672"
       - "4369:4369"
