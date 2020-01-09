@@ -43,8 +43,6 @@ services:
 
   # rabbitmq(基于dockerfile文件构建镜像，不需重新拉取镜像)
   rabbitmq:
-    # 镜像
-    image: rabbitmq:latest
     # 找到rabbitmq目录，读取里面的dockerfile文件在里面构建容器
     build: ./rabbitmq/
     # 容器名称
