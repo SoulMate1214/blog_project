@@ -2,7 +2,9 @@ package com.gzmu.blog_project.tools;
 
 import com.gzmu.blog_project.entity.SysLog;
 import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,9 +41,33 @@ public class RabbitProducer {
     }
 
     /**
+     * 以下是新的切面，并非所有请求
+     *
+     * @param
+     * @return void
+     * @author Soul
+     * @date 2020/1/9 22:11
+     */
+    @Pointcut("@annotation(org.springframework.data.rest.webmvc.RepositoryRestController)")
+    public void annotationRepositoryController() {
+    }
+
+    @Pointcut("@annotation(org.springframework.web.bind.annotation.RestController)")
+    public void annotationRestController() {
+    }
+// 报错
+//    @Pointcut("execution(* org.springframework.data.rest.webmvc.*Controller..*(..))")
+//    public void restController() {
+//    }
+
+    @Pointcut("execution(* com.gzmu.blog_project.controller.*..*(..))")
+    public void controller() {
+    }
+
+    /**
      * aop切面监控所有执行的方法，获取基本信息保存到log
      * 这里尝试了@Around，@Around和队列会有冲突导致队列通道中断，pass掉
-     *
+     * <p>
      * getRequestURI()：请求的URI（相对路劲）
      * getMethod()：请求方式
      * getRequestURL()：请求的URL（绝对路劲）
@@ -50,10 +76,13 @@ public class RabbitProducer {
      * getServerName()：服务器名，若失败，则返回来源ip
      * getHeader("User-Agent")：浏览器信息
      * getRemoteHost()：客户端电脑名，若失败，则返回来源ip
-     *
      */
-    @After("execution(* com.gzmu.blog_project.repository.*..*(..))")
-    public void logMessageGenerate(){
+//    这是所有请求的切面
+//    @After("execution(* com.gzmu.blog_project.repository.*..*(..))")
+//    这是部分请求的切面
+    @Around("annotationRepositoryController()" +
+            "|| annotationRestController() || controller()")
+    public void logMessageGenerate() {
         Date date = new Date();
         SysLog sysLog = new SysLog();
         sysLog.setStatus("");
@@ -66,10 +95,9 @@ public class RabbitProducer {
         sysLog.setFromUrl(httpServletRequest.getRequestURL().toString());
         sysLog.setUrl(httpServletRequest.getRequestURI());
         sysLog.setOperation(httpServletRequest.getMethod());
-        sysLog.setName("来自"+httpServletRequest.getRequestURL().toString()+"的日志信息");
+        sysLog.setName("来自" + httpServletRequest.getRequestURL().toString() + "的日志信息");
         rabbitmqTemplate.convertAndSend(RabbitConfig.EXCHANGE, RabbitConfig.ROUTING_KEY, sysLog);
     }
-
 
 
     /**
