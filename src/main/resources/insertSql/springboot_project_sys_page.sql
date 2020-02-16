@@ -1,0 +1,1 @@
+INSERT INTO springboot_project.sys_page (id, name, url, sort, status, remark, is_enable, create_time, modify_time, create_user, modify_user) VALUES (1, '首条页面数据', '暂无', null, '1', '这是首条页面数据', 1, '2019-07-08', '2019-07-08', '谢印', '谢印');

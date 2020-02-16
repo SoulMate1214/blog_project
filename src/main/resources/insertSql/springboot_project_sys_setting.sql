@@ -1,0 +1,1 @@
+INSERT INTO springboot_project.sys_setting (id, name, web_url, web_title, web_child_title, web_message, web_key, sort, status, remark, is_enable, create_time, modify_time, create_user, modify_user) VALUES (1, '首条站点基本信息', 'www.xysoul.cn', '冫Soul丶', '冫Mate丶', '灵魂伴侣', '灵魂伴侣', null, '1', '这是首条站点基本信息', 1, '2019-07-08', '2019-07-08', '谢印', '谢印');

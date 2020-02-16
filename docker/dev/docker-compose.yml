@@ -16,9 +16,9 @@ services:
     # 设置挂载卷(-本地的目录名称：容器中的目录名称)
     volumes:
       # 挂载数据目录
-      - "${REDIS_DIR}/data:/data"
+      - ${REDIS_DIR}/data:/data
       # 挂载配置文件目录
-      - "${REDIS_DIR}/config:/usr/local/etc/redis"
+      - ${REDIS_DIR}/config:/usr/local/etc/redis
 
   # mysql
   mysql:
@@ -34,9 +34,9 @@ services:
     # 设置挂载卷
     volumes:
       # 挂载数据目录
-      - "${MYSQL_DIR}/data:/var/lib/mysql"
+      - ${MYSQL_DIR}/data:/var/lib/mysql
       # 挂载配置文件目录
-      - "${MYSQL_DIR}/config:/etc/mysql/conf.d"
+      - ${MYSQL_DIR}/config:/etc/mysql/conf.d
     # 环境读取
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
@@ -55,11 +55,11 @@ services:
       - RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS}
     # 主机端口转发容器端口
     ports:
-      - "5672:5672"
-      - "4369:4369"
-      - "5671:5671"
-      - "15671:15671"
-      - "15672:15672"
+      - 5672:5672
+      - 4369:4369
+      - 5671:5671
+      - 15671:15671
+      - 15672:15672
     
 
 
