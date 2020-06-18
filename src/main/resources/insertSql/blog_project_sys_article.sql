@@ -387,7 +387,7 @@ Callable接口是Runnable的一个增强版，它不同于Runnable的run函数�
         }
     }
 ![5b10e2581cb26.jpg](http://118.25.221.201:1111/articleImage/8326f956576f4ad9afa7fa4f1dd5fc80.jpg)', 6, 0, 1, null, 'http://118.25.221.201:1111/articleImage/8326f956576f4ad9afa7fa4f1dd5fc80.jpg', null, 1, '2020-02-08', '2020-02-08', 'admin', 'admin');
-INSERT INTO springboot_project.sys_article (id, name, message, browse_count, like_count, classify_id, sort, status, remark, is_enable, create_time, modify_time, create_user, modify_user) VALUES (2, '系列文章之JDK8新特性(二)', '# JDK8新特性
+INSERT INTO blog_project.sys_article (id, name, message, browse_count, like_count, classify_id, sort, status, remark, is_enable, create_time, modify_time, create_user, modify_user) VALUES (2, '系列文章之JDK8新特性(二)', '# JDK8新特性
 ### 二.Lambda篇：
 #### 1.Lambda表达式：
 Lambda表达式是JDK8中最重要的一个了，在JDK8之后你会看到一堆Lambda表达式的代码，要是不会那就看不懂别人的代码了。更别说自己写了。前面我们也说过了，Lambda可以很好的兼容函数式接口，它可以取代大部分的匿名内部类，写出更优雅的 Java 代码，尤其在集合的遍历和其他集合操作中，可以极大地优化代码结构。
@@ -813,7 +813,7 @@ Lambda表达式就告一段落了，接下来的最后一篇将会很短，因�
     // 取值
     get() 
 ![re3213w31ar3.jpg](http://118.25.221.201:1111/articleImage/fd42f7d3b69246b1a9d10fdb8b617cc1.jpg)', 2, 0, 1, null, 'http://118.25.221.201:1111/articleImage/fd42f7d3b69246b1a9d10fdb8b617cc1.jpg', null, 1, '2020-02-18', '2020-02-18', 'admin', 'admin');
-INSERT INTO springboot_project.sys_article (id, name, message, browse_count, like_count, classify_id, sort, status, remark, is_enable, create_time, modify_time, create_user, modify_user) VALUES (3, '系列文章之JDK8新特性(三)', '# JDK8新特性
+INSERT INTO blog_project.sys_article (id, name, message, browse_count, like_count, classify_id, sort, status, remark, is_enable, create_time, modify_time, create_user, modify_user) VALUES (3, '系列文章之JDK8新特性(三)', '# JDK8新特性
 ### 三.杂篇：
 #### 1.base64：
 由于某些系统中只能使用ASCII字符。Base64就是用来将非ASCII字符的数据转换成ASCII字符的一种方法。 Base64其实不是安全领域下的加密解密算法，而是一种编码，也就是说，它是可以被翻译回原来的样子。它并不是一种加密过程。所以base64只能算是一个编码算法，对数据内容进行编码来适合传输。虽然base64编码过后原文也变成不能看到的字符格式，但是这种方式很初级，很简单。
@@ -1221,7 +1221,7 @@ Java 8扩展了注解的上下文。现在几乎可以为任何东西添加注�
     }
 
 ![timg.jpg](http://118.25.221.201:1111/articleImage/64d6548540b846bd911fa8c69ead3bf4.jpg)', 2, 0, 1, null, 'http://118.25.221.201:1111/articleImage/64d6548540b846bd911fa8c69ead3bf4.jpg', null, 1, '2020-02-18', '2020-02-18', 'admin', 'admin');
-INSERT INTO springboot_project.sys_article (id, name, message, browse_count, like_count, classify_id, sort, status, remark, is_enable, create_time, modify_time, create_user, modify_user) VALUES (4, '集合类综合讲解', '# 集合
+INSERT INTO blog_project.sys_article (id, name, message, browse_count, like_count, classify_id, sort, status, remark, is_enable, create_time, modify_time, create_user, modify_user) VALUES (4, '集合类综合讲解', '# 集合
 **集合类在java中有着不言而喻的地位，在我看来，学完java基础之后的java中级中就有它的一席之地**
 
 ### 一.综述:
