@@ -19,7 +19,7 @@ create table sys_article
     id           int auto_increment comment '编号'
         primary key,
     name         varchar(255)   null comment '文章名',
-    message      varchar(15000) null comment '文章内容',
+    message      varchar(20000) null comment '文章内容',
     browse_count int default 0  null comment '浏览量，默认0',
     like_count   int default 0  null comment '点赞数',
     classify_id  int            null comment '文章分类编号',
