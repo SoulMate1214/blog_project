@@ -1,4 +1,4 @@
-INSERT INTO springboot_project.sys_article (id, name, message, browse_count, like_count, classify_id, sort, status, remark, is_enable, create_time, modify_time, create_user, modify_user) VALUES (1, '系列文章之JDK8新特性(一)', '# JDK8新特性
+INSERT INTO blog_project.sys_article (id, name, message, browse_count, like_count, classify_id, sort, status, remark, is_enable, create_time, modify_time, create_user, modify_user) VALUES (1, '系列文章之JDK8新特性(一)', '# JDK8新特性
 **JDK8已经出了好久好久了，我现在才来写特性，惭愧惭愧，本来准备去研究JDK13的，想想还是一步一步来吧，废话不多说，让我们看看都有哪些特性吧？**
 
 ### 一.接口篇：
