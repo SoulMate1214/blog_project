@@ -7,7 +7,7 @@ services:
     # 镜像
     image: mysql:latest
     # 容器名称
-    container_name: mysql-dev
+    container_name: mysql
     # 主机端口转发容器端口
     ports:
       - 3306:3306
@@ -28,7 +28,7 @@ services:
     # 镜像
     image: redis:latest
     # 容器名称
-    container_name: redis-dev
+    container_name: redis
     # 主机端口转发容器端口
     ports:
       - 6379:6379
@@ -46,7 +46,7 @@ services:
     # 找到rabbitmq目录，读取里面的dockerfile文件在里面构建容器
     build: ./rabbitmq/
     # 容器名称
-    container_name: rabbitmq-dev
+    container_name: rabbitmq
     # 总是自启
     restart: always
     # 环境读取
