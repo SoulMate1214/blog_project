@@ -54,7 +54,7 @@ public class RabbitConsumer {
         try {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             System.out.println("消息接收时间:" + simpleDateFormat.format(new Date()));
-            sysLogRepository.save(sysLog);
+//            sysLogRepository.save(sysLog);
         } catch (Exception e) {
             //这段代码表示，这次消息我已经接受并消费掉了，不会再重复发送消费,不然当有错误的队列信息时会使得程序死循环
             channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);

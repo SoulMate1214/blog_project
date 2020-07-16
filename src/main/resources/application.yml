@@ -82,5 +82,5 @@ spring:
 
 # 定义绝对路径
 web:
-  image-upload-path: /home/soul/Templates/WorkSpace/blog_project/src/main/resources/articleImage/
+  image-upload-path: D:/jetbrains/workspace/idea/blog_project/src/main/resources/articleImage/
 

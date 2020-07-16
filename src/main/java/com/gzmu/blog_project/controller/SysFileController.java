@@ -55,6 +55,6 @@ public class SysFileController extends BaseController<SysFile,Integer,SysFileSer
             e.printStackTrace();
             return "0";
         }
-        return "http://118.25.221.201:1111/articleImage/"+fileName;
+        return "http://127.0.0.1:1111/articleImage/"+fileName;
     }
 }
