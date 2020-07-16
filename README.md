@@ -18,6 +18,8 @@
     nohup java -cp "WEB-INF/lib/*:WEB-INF/classes" com.gzmu.blog_project.BlogProjectApplication > blog.log 2>&1 &
 #### 查看java进程
     ps -ef | grep java | grep -v grep
+#### 修改niginx
+    /usr/local/nginx/conf/nginx.conf
 #### 重启niginx
     cd /usr/local/nginx/sbin
     ./nginx -s stop
