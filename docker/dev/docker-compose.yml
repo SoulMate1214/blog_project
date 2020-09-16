@@ -2,26 +2,26 @@
 version: "3"
 # 容器配置
 services:
-  # mysql
-  mysql:
-    # 镜像
-    image: mysql:latest
-    # 容器名称
-    container_name: mysql-dev
-    # 主机端口转发容器端口
-    ports:
-      - 3306:3306
-    # 总是自启
-    restart: always
-    # 设置挂载卷
-    volumes:
-      # 挂载数据目录
-      - ${MYSQL_DIR}/data:/var/lib/mysql
-      # 挂载配置文件目录
-      - ${MYSQL_DIR}/config:/etc/mysql/conf.d
-    # 环境读取
-    environment:
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+#  # mysql
+#  mysql:
+#    # 镜像
+#    image: mysql:latest
+#    # 容器名称
+#    container_name: mysql-dev
+#    # 主机端口转发容器端口
+#    ports:
+#      - 3306:3306
+#    # 总是自启
+#    restart: always
+#    # 设置挂载卷
+#    volumes:
+#      # 挂载数据目录
+#      - ${MYSQL_DIR}/data:/var/lib/mysql
+#      # 挂载配置文件目录
+#      - ${MYSQL_DIR}/config:/etc/mysql/conf.d
+#    # 环境读取
+#    environment:
+#      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
 
   # redis
   redis:

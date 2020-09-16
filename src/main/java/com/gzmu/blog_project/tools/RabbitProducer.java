@@ -53,7 +53,7 @@ public class RabbitProducer {
      * getHeader("User-Agent")：浏览器信息
      * getRemoteHost()：客户端电脑名，若失败，则返回来源ip
      */
-    @After("execution(* com.gzmu.blog_project.repository.*..*(..))")
+//    @After("execution(* com.gzmu.blog_project.repository.*..*(..))")
     public void logMessageGenerate() {
         Date date = new Date();
         SysLog sysLog = new SysLog();

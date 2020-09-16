@@ -1,4 +1,0 @@
-INSERT INTO blog_project.sys_user_role (id, name, user_id, role_id, sort, status, remark, is_enable, create_time, modify_time, create_user, modify_user) VALUES (1, '关联测试', 1, 1, null, '1', '关联测试', 1, '2019-07-08', '2019-07-08', '谢印', '谢印');
-INSERT INTO blog_project.sys_user_role (id, name, user_id, role_id, sort, status, remark, is_enable, create_time, modify_time, create_user, modify_user) VALUES (2, '关联测试', 2, 1, null, '1', '关联测试', 1, '2019-07-08', '2019-07-08', '谢印', '谢印');
-INSERT INTO blog_project.sys_user_role (id, name, user_id, role_id, sort, status, remark, is_enable, create_time, modify_time, create_user, modify_user) VALUES (3, '关联测试', 1, 2, null, '1', '关联测试', 1, '2019-07-08', '2019-07-08', '谢印', '谢印');
-INSERT INTO blog_project.sys_user_role (id, name, user_id, role_id, sort, status, remark, is_enable, create_time, modify_time, create_user, modify_user) VALUES (4, '关联测试', 2, 2, null, '1', '关联测试', 1, '2019-07-08', '2019-07-08', '谢印', '谢印');
