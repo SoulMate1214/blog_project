@@ -37,6 +37,11 @@ public class SysArticleLabelServiceImpl extends BaseServiceImpl<SysArticleLabel,
     }
 
     @Override
+    public List<SysArticleLabel> findByLabelId(Integer labelId) {
+        return sysArticleLabelRepository.findByLabelId(labelId);
+    }
+
+    @Override
     protected SysArticleLabel competeEntity(SysArticleLabel sysArticleLabel) {
         if (sysArticleLabel.getArticleId() != null) {
             sysArticleLabel.setSysArticle(sysArticleRepository.getOne(sysArticleLabel.getArticleId()));

@@ -58,12 +58,12 @@ spring:
         hbm2ddl:
           auto: update
 
-  # 消息队列
-  rabbitmq:
-    host: 127.0.0.1
-    port: 5672
-    username: guest
-    password: guest
+#  # 消息队列
+#  rabbitmq:
+#    host: 127.0.0.1
+#    port: 5672
+#    username: guest
+#    password: guest
 
 
   # 图片访问的url路径(http://127.0.0.1/articleImage/**)

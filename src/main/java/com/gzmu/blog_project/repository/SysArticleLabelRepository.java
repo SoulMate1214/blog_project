@@ -20,4 +20,11 @@ public interface SysArticleLabelRepository extends BaseRepository<SysArticleLabe
      * @return List<SysArticleLabel>
      */
     List<SysArticleLabel> findByArticleId(Integer articleId);
+
+    /**
+     * 根据标签编号查找
+     * @param labelId
+     * @return List<SysArticleLabel>
+     */
+    List<SysArticleLabel> findByLabelId(Integer labelId);
 }
